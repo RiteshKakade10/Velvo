@@ -4,8 +4,10 @@ import whitetshirt from '../assets/whitetshirt.jpg';
 import tshirt2 from '../assets/womenshirt.jpg';
 import tshirt3 from '../assets/tshirt3.jpg';
 import { useCart } from '../CartContext';
+import { useWishlist } from './Contexts/WishlistContext';
 
 export default function Home() {
+  const { toggleWishlist, wishlistItems } = useWishlist();
   const { addToCart, cartItems } = useCart();
   const [activeTab, setActiveTab] = useState('Featured');
 
@@ -13,6 +15,18 @@ export default function Home() {
 
   const allProducts = {
     Featured: [
+      { id: 1, title: 'Classic Tee', image: whitetshirt, price: 999 },
+      { id: 2, title: 'Bold Hoodie', image: tshirt2, price: 1299 },
+      { id: 3, title: 'Summer Shirt', image: tshirt3, price: 899 },
+      { id: 4, title: 'Printed Tee', image: tshirt3, price: 799 },
+      { id: 5, title: 'Urban Fit', image: tshirt2, price: 1199 },
+      { id: 6, title: 'Casual Crew', image: whitetshirt, price: 899 },
+      { id: 1, title: 'Classic Tee', image: whitetshirt, price: 999 },
+      { id: 2, title: 'Bold Hoodie', image: tshirt2, price: 1299 },
+      { id: 3, title: 'Summer Shirt', image: tshirt3, price: 899 },
+      { id: 4, title: 'Printed Tee', image: tshirt3, price: 799 },
+      { id: 5, title: 'Urban Fit', image: tshirt2, price: 1199 },
+      { id: 6, title: 'Casual Crew', image: whitetshirt, price: 899 },
       { id: 1, title: 'Classic Tee', image: whitetshirt, price: 999 },
       { id: 2, title: 'Bold Hoodie', image: tshirt2, price: 1299 },
       { id: 3, title: 'Summer Shirt', image: tshirt3, price: 899 },
@@ -31,31 +45,31 @@ export default function Home() {
       {
         id: 12,
         title: 'Grey Hoodie',
-        image: 'https://images.unsplash.com/photo-1612423284934-20d1a4d37909?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1618354691373-1e5e3bcb756b?w=600&h=400&fit=crop&auto=format',
         price: 1399,
       },
       {
         id: 13,
         title: 'Zip-Up Hoodie',
-        image: 'https://images.unsplash.com/photo-1602810310925-e0ba3f9d012b?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1602810310925-e0ba3f9d012b?w=600&h=400&fit=crop&auto=format',
         price: 1499,
       },
       {
         id: 14,
         title: 'Pullover Hoodie',
-        image: 'https://images.unsplash.com/photo-1602810310331-e9e582d353cf?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=400&fit=crop&auto=format',
         price: 1299,
       },
       {
         id: 15,
         title: 'Navy Hoodie',
-        image: 'https://images.unsplash.com/photo-1602810310471-d141fbfbd0dc?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1602810310471-d141fbfbd0dc?w=600&h=400&fit=crop&auto=format',
         price: 1399,
       },
       {
         id: 16,
         title: 'Cropped Hoodie',
-        image: 'https://images.unsplash.com/photo-1602810309823-c7bdbd1030ef?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1600185366143-1c3f48f5849b?w=600&h=400&fit=crop&auto=format',
         price: 1199,
       },
     ],
@@ -63,31 +77,31 @@ export default function Home() {
       {
         id: 17,
         title: 'Wrist Band',
-        image: 'https://images.unsplash.com/photo-1570913149827-d2ac84ab3f57?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1610945265065-44b0c5397b43?w=600&h=400&fit=crop&auto=format',
         price: 399,
       },
       {
         id: 18,
         title: 'Cap',
-        image: 'https://images.unsplash.com/photo-1611432579863-5f866d2f1123?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1583267743650-d4cd9685d107?w=600&h=400&fit=crop&auto=format',
         price: 499,
       },
       {
         id: 19,
         title: 'Backpack',
-        image: 'https://images.unsplash.com/photo-1599940824395-154d6fd4a01e?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1611042552788-14b2c46a8b79?w=600&h=400&fit=crop&auto=format',
         price: 999,
       },
       {
         id: 20,
         title: 'Socks (Pack of 3)',
-        image: 'https://images.unsplash.com/photo-1600185365524-cbd35f2f1458?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1597099315732-4d51d397767b?w=600&h=400&fit=crop&auto=format',
         price: 299,
       },
       {
         id: 21,
         title: 'Tote Bag',
-        image: 'https://images.unsplash.com/photo-1598032899407-9aaed5803671?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1598032899407-9aaed5803671?w=600&h=400&fit=crop&auto=format',
         price: 599,
       },
     ],
@@ -137,6 +151,8 @@ export default function Home() {
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {currentItems.map((item) => {
             const inCart = cartItems.find((ci) => ci.id === item.id);
+            const inWishlist = wishlistItems.some((wi) => wi.id === item.id);
+
             return (
               <motion.div
                 key={item.id}
@@ -146,15 +162,28 @@ export default function Home() {
                 <img
                   src={item.image}
                   alt={item.title}
+                  referrerPolicy="no-referrer"
                   className="w-full h-56 object-cover rounded-lg mb-4"
                 />
                 <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
                 <p className="text-sm text-gray-500">₹{item.price}</p>
+
+                {/* Add to Cart */}
                 <button
                   onClick={() => addToCart(item)}
                   className="mt-3 w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-full transition"
                 >
                   {inCart ? `Add More (${inCart.qty})` : 'Add to Cart'}
+                </button>
+
+                {/* Toggle Wishlist */}
+                <button
+                  onClick={() => toggleWishlist(item)}
+                  className={`mt-2 w-full border ${
+                    inWishlist ? 'border-pink-500 text-pink-600' : 'border-gray-300 text-gray-600'
+                  } py-2 rounded-full hover:bg-pink-50 transition font-medium`}
+                >
+                  {inWishlist ? '❤️ Added to Wishlist' : '🤍 Add to Wishlist'}
                 </button>
               </motion.div>
             );

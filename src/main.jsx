@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
-import { WishlistProvider } from './Components/Contexts/WishlistContext';
+import { WishlistProvider } from './Pages/Contexts/WishlistContext';
 import { CartProvider } from './CartContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

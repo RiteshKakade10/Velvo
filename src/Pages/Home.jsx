@@ -21,18 +21,9 @@ export default function Home() {
       { id: 4, title: 'Printed Tee', image: tshirt3, price: 799 },
       { id: 5, title: 'Urban Fit', image: tshirt2, price: 1199 },
       { id: 6, title: 'Casual Crew', image: whitetshirt, price: 899 },
-      { id: 1, title: 'Classic Tee', image: whitetshirt, price: 999 },
-      { id: 2, title: 'Bold Hoodie', image: tshirt2, price: 1299 },
-      { id: 3, title: 'Summer Shirt', image: tshirt3, price: 899 },
-      { id: 4, title: 'Printed Tee', image: tshirt3, price: 799 },
-      { id: 5, title: 'Urban Fit', image: tshirt2, price: 1199 },
-      { id: 6, title: 'Casual Crew', image: whitetshirt, price: 899 },
-      { id: 1, title: 'Classic Tee', image: whitetshirt, price: 999 },
-      { id: 2, title: 'Bold Hoodie', image: tshirt2, price: 1299 },
-      { id: 3, title: 'Summer Shirt', image: tshirt3, price: 899 },
-      { id: 4, title: 'Printed Tee', image: tshirt3, price: 799 },
-      { id: 5, title: 'Urban Fit', image: tshirt2, price: 1199 },
-      { id: 6, title: 'Casual Crew', image: whitetshirt, price: 899 },
+      { id: 7, title: 'Classic Tee', image: whitetshirt, price: 999 },
+      { id: 8, title: 'Bold Hoodie', image: tshirt2, price: 1299 },
+      { id: 9, title: 'Summer Shirt', image: tshirt3, price: 899 },
     ],
     Men: [
       { id: 7, title: 'Men T-Shirt', image: whitetshirt, price: 849 },
@@ -190,11 +181,6 @@ export default function Home() {
           })}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="mt-16 bg-purple-900 text-white text-center py-4 text-sm">
-        © {new Date().getFullYear()} VELVO. Made with 💜 for fashion lovers.
-      </footer>
     </div>
   );
 }

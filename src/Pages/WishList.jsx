@@ -8,7 +8,7 @@ const WishList = () => {
   const totalPrice = wishlistItems.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <div className="pt-40 min-h-screen bg-gray-100 p-6">
+    <div className="pt-40 min-h-screen bg-white-100 p-6">
       <h2 className="text-3xl font-semibold mb-2 text-center text-gray-800">
         My Wishlist ({wishlistItems.length})
       </h2>

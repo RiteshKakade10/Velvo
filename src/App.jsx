@@ -1,10 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './Components/Navbar';
-import Home from './Components/Home';
-import Account from './Components/Account';
-import CartDropdown from './Components/CartDropdown.jsx';
-import WishList from './Components/WishList.jsx'
+import Navbar from './Pages/Navbar.jsx';
+import Home from './Pages/Home.jsx';
+import Account from './Pages/Account.jsx';
+import CartDropdown from './Pages/CartDropdown.jsx';
+import WishList from './Pages/WishList.jsx'
+import Footer from './Pages/Footer.jsx';
+import About from './Pages/About.jsx';
+import Contact from './Pages/Contact.jsx';
 
 function App() {
   return (
@@ -15,7 +18,10 @@ function App() {
         <Route path="/acc" element={<Account />} />
         <Route path="/cart" element={<CartDropdown />} />
         <Route path="/wishlist" element={<WishList />} />
+        <Route path="/about" element={<About />} />
+         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

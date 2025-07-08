@@ -25,9 +25,10 @@ const Navbar = () => {
             </div>
 
             {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex justify-start items-center space-x-2">
             <img src={velvo} alt="Logo" className="h-15 w-auto object-contain" />
           </Link>
+          //!changes made in logo
 
 
 

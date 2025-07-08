@@ -1,5 +1,7 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 const MegaMenu = ({ type, isMobile = false }) => {
-  
   const menus = {
     "new ⚡️": [
       {
@@ -152,37 +154,58 @@ const MegaMenu = ({ type, isMobile = false }) => {
   const content = menus[type];
   if (!content) return null;
 
- return (
-  <div className={`w-full ${isMobile ? '' : 'relative overflow-x-hidden'}`}>
-    <div
-      className={`${
-        isMobile
-          ? 'bg-black text-white w-full py-2 px-3 relative'
-          : 'bg-white text-black shadow-lg border border-gray-200 rounded-md min-w-[700px] max-w-[95vw] mx-auto p-6 grid grid-cols-2 md:grid-cols-5 gap-6 z-50'
-      }`}
-    >
-      {content.map((col, index) => (
-        <div key={index} className={`${isMobile ? 'mb-4' : ''}`}>
-          <h4 className="font-bold mb-2">{col.title}</h4>
-          <ul className="text-sm space-y-1">
-            {col.items.map((item, idx) => (
-              <li
-                key={idx}
-                className={`cursor-pointer ${
-                  isMobile
-                    ? 'text-white hover:text-red-500'
-                    : 'text-gray-800 hover:underline transition duration-150'
-                }`}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+  const slugify = (text) =>
+  text
+    .trim()
+    .toLowerCase()
+    .replace(/’/g, '')             // remove curly apostrophes
+    .replace(/'/g, '')             // remove straight apostrophes
+    .replace(/[^\w\s-]/g, '')      // remove special chars (like ⚡️)
+    .replace(/\s+/g, '-')          // replace spaces with hyphens
+    .replace(/-+$/, '')            // remove trailing hyphens
+    .replace(/^[-]+/, '');         // remove leading hyphens
+
+
+
+  return (
+    <div className={`w-full ${isMobile ? '' : 'relative overflow-x-hidden'}`}>
+      <div
+        className={`${
+          isMobile
+            ? 'bg-black text-white w-full py-2 px-3 relative'
+            : 'bg-white text-black shadow-lg border border-gray-200 rounded-md min-w-[700px] max-w-[95vw] mx-auto p-6 grid grid-cols-2 md:grid-cols-5 gap-6 z-50'
+        }`}
+      >
+        {content.map((col, index) => (
+          <div key={index} className={`${isMobile ? 'mb-4' : ''}`}>
+            <h4 className="font-bold mb-2">{col.title}</h4>
+            <ul className="text-sm space-y-1">
+              {col.items.map((item, idx) => {
+                const slug = slugify(item);
+                const base = type.toLowerCase().includes('new') ? 'New' : slugify(type);
+                const path = `/New/${slug}`;
+
+                return (
+                  <li key={idx}>
+                    <Link
+                      to={path}
+                      className={`block ${
+                        isMobile
+                          ? 'text-white hover:text-red-500'
+                          : 'text-gray-800 hover:underline transition duration-150'
+                      }`}
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default MegaMenu;

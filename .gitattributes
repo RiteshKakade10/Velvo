@@ -1,0 +1,11 @@
+# Ignore public and build folders for language stats
+public/* linguist-vendored
+build/* linguist-vendored
+dist/* linguist-vendored
+
+# Ignore minified files
+*.min.js linguist-generated
+*.min.css linguist-generated
+
+# Detect code inside src folder
+src/* linguist-detectable

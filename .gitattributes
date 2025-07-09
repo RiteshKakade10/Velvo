@@ -9,3 +9,4 @@ dist/* linguist-vendored
 
 # Detect code inside src folder
 src/* linguist-detectable
+*.html linguist-language=JavaScript

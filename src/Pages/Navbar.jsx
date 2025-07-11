@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import MegaMenu from '../Dropdowns/MegaMenu';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const links = ["New ⚡️", "Men", "Women", "Sports", "Motarsport", "Lifestyle", "Kids", "Sale", "Nitro"];
+  const links = ["New ⚡️", "Men", "Women", "Sports", "Lifestyle", "Kids", "Sale"];
   const [openDropdown, setOpenDropdown] = useState(null);
 
   return (

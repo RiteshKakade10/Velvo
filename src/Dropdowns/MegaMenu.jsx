@@ -30,18 +30,18 @@ const MegaMenu = ({ type, isMobile = false }) => {
         title: "Top Categories",
         items: ["T-Shirts", "Shoes", "Shorts", "Jackets", "Tracksuits", "Accessories"]
       },
-      {
-        title: "Collections",
-        items: ["BMW M Motorsport", "Scuderia Ferrari", "Mercedes AMG", "PUMA x One8"]
-      },
+      // {
+      //   title: "Collections",
+      //   items: ["BMW M Motorsport", "Scuderia Ferrari", "Mercedes AMG", "PUMA x One8"]
+      // },
       {
         title: "Footwear",
         items: ["Running Shoes", "Sneakers", "Slides", "Training Shoes"]
-      },
-      {
-        title: "Sportswear",
-        items: ["Cricket", "Football", "Running", "Gym & Training"]
       }
+      // {
+      //   title: "Sportswear",
+      //   items: ["Cricket", "Football", "Running", "Gym & Training"]
+      // }
     ],
     women: [
       {
@@ -56,10 +56,10 @@ const MegaMenu = ({ type, isMobile = false }) => {
         title: "Footwear",
         items: ["Running", "Training", "Slides", "Sneakers"]
       },
-      {
-        title: "Collections",
-        items: ["Forever Faster", "PUMA x DUA LIPA", "Smurfs", "Studio Collection"]
-      }
+      // {
+      //   title: "Collections",
+      //   items: ["Forever Faster", "PUMA x DUA LIPA", "Smurfs", "Studio Collection"]
+      // }
     ],
     sports: [
       {
@@ -79,20 +79,20 @@ const MegaMenu = ({ type, isMobile = false }) => {
         items: ["Gym Shoes", "Training T-Shirts", "Bags"]
       }
     ],
-    motarsport: [
-      {
-        title: "F1 Teams",
-        items: ["Scuderia Ferrari", "BMW M Motorsport", "Mercedes AMG"]
-      },
-      {
-        title: "Motorsport Footwear",
-        items: ["Speedcat", "Drift Cat", "Kart Cat"]
-      },
-      {
-        title: "Jackets & Tees",
-        items: ["Bomber Jackets", "Race Tees", "Driver Merch"]
-      }
-    ],
+    // motarsport: [
+    //   {
+    //     title: "F1 Teams",
+    //     items: ["Scuderia Ferrari", "BMW M Motorsport", "Mercedes AMG"]
+    //   },
+    //   {
+    //     title: "Motorsport Footwear",
+    //     items: ["Speedcat", "Drift Cat", "Kart Cat"]
+    //   },
+    //   {
+    //     title: "Jackets & Tees",
+    //     items: ["Bomber Jackets", "Race Tees", "Driver Merch"]
+    //   }
+    // ],
     lifestyle: [
       {
         title: "Everyday Wear",
@@ -135,20 +135,20 @@ const MegaMenu = ({ type, isMobile = false }) => {
         items: ["Under ₹999", "Flat 50% Off", "Buy 1 Get 1"]
       }
     ],
-    nitro: [
-      {
-        title: "Nitro Running Tech",
-        items: ["Deviate Nitro", "Velocity Nitro", "Liberate Nitro", "Magnify Nitro"]
-      },
-      {
-        title: "For Activities",
-        items: ["Road Running", "Trail Running", "Long Distance"]
-      },
-      {
-        title: "For You",
-        items: ["Men's Nitro", "Women's Nitro", "Nitro Elite"]
-      }
-    ]
+    // nitro: [
+    //   {
+    //     title: "Nitro Running Tech",
+    //     items: ["Deviate Nitro", "Velocity Nitro", "Liberate Nitro", "Magnify Nitro"]
+    //   },
+    //   {
+    //     title: "For Activities",
+    //     items: ["Road Running", "Trail Running", "Long Distance"]
+    //   },
+    //   {
+    //     title: "For You",
+    //     items: ["Men's Nitro", "Women's Nitro", "Nitro Elite"]
+    //   }
+    //]
   };
 
   const content = menus[type];

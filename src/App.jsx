@@ -8,7 +8,7 @@ import WishList from './Pages/WishList.jsx'
 import Footer from './Pages/Footer.jsx';
 import About from './Pages/About.jsx';
 import Contact from './Pages/Contact.jsx';
-import NewSectionMain from './NavbarSectionCoponents/NewSectionMain.jsx';
+import MainPageRendering from './NavbarSectionCoponents/MainPageRendering.jsx';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/wishlist" element={<WishList />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/New/:category" element={<NewSectionMain />} />
+        <Route path="/New/:category" element={<MainPageRendering />} />
       </Routes>
       <Footer/>
     </BrowserRouter>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom'; // Ensure react-router-dom is installed for Link
 
 // Custom Message Box Component
 const MessageBox = ({ message, type, onClose }) => {
@@ -24,7 +23,6 @@ const MessageBox = ({ message, type, onClose }) => {
   );
 };
 
-
 // Forgot Password Component
 const ForgotPasswordForm = ({ onBackToLogin, showMessage }) => {
   const [email, setEmail] = useState('');
@@ -33,25 +31,11 @@ const ForgotPasswordForm = ({ onBackToLogin, showMessage }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate API call for password reset
-    try {
-      // In a real application, you would make an API call here:
-      // const res = await fetch('http://localhost:5000/api/auth/forgot-password', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email }),
-      // });
-      // const data = await res.json();
-      // if (!res.ok) {
-      //   showMessage(data.message || 'Failed to send reset link.', 'error');
-      //   return;
-      // }
-      // showMessage('Password reset link sent to your email!', 'success');
 
-      // For demonstration:
+    try {
       await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
       showMessage(`If an account with ${email} exists, a reset link has been sent.`, 'success');
-      setEmail(''); // Clear email field
+      setEmail('');
     } catch (error) {
       console.error('Error sending reset link:', error);
       showMessage('Server error. Please try again later.', 'error');
@@ -104,20 +88,17 @@ const ForgotPasswordForm = ({ onBackToLogin, showMessage }) => {
   );
 };
 
-
 const Account = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [showForgotPassword, setShowForgotPassword] = useState(false); // New state for forgot password form
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: '',
-    confirmPassword: '',
+    password: ''
   });
   const [message, setMessage] = useState(null);
   const [messageType, setMessageType] = useState(null);
   const [loading, setLoading] = useState(false);
-
 
   const showMessage = (msg, type) => {
     setMessage(msg);
@@ -125,7 +106,7 @@ const Account = () => {
     setTimeout(() => {
       setMessage(null);
       setMessageType(null);
-    }, 5000); // Message disappears after 5 seconds
+    }, 5000);
   };
 
   const handleChange = (e) => {
@@ -140,15 +121,19 @@ const Account = () => {
     setLoading(true);
 
     const endpoint = isLogin
-      ? 'http://localhost:5000/api/auth/login'
-      : 'http://localhost:5000/api/auth/register';
+      ? 'http://localhost:4040/auth/login'
+      : 'http://localhost:4040/auth/signup';
 
     const payload = isLogin
       ? {
           email: formData.email,
           password: formData.password,
         }
-      : formData;
+      : {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password
+        };
 
     try {
       const res = await fetch(endpoint, {
@@ -166,16 +151,9 @@ const Account = () => {
       showMessage(data.message || (isLogin ? 'Login Successful' : 'Registered Successfully'), 'success');
       console.log('✅ Backend response:', data);
 
-      // Oxional: Reset form
-      setFormData({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      });
-      if (!isLogin) { // If registered, switch to login view
-        setIsLogin(true);
-      }
+      // Reset form
+      setFormData({ name: '', email: '', password: '' });
+      if (!isLogin) setIsLogin(true);
     } catch (err) {
       console.error('❌ Error:', err);
       showMessage('Server Error', 'error');
@@ -210,11 +188,11 @@ const Account = () => {
             onClick={() => {
               if (showForgotPassword) {
                 setShowForgotPassword(false);
-                setIsLogin(true); // Always go back to login after forgot password
+                setIsLogin(true);
               } else {
                 setIsLogin(!isLogin);
               }
-              setMessage(null); // Clear messages on tab switch
+              setMessage(null);
             }}
             className="bg-white text-purple-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 shadow-md"
           >
@@ -268,16 +246,7 @@ const Account = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-purple-700 focus:outline-none transition"
                 />
-                {!isLogin && (
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-purple-700 focus:outline-none transition"
-                  />
-                )}
+
                 <button
                   type="submit"
                   className="w-full bg-purple-700 text-white py-2 rounded-full font-semibold shadow-md hover:scale-105 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -293,7 +262,7 @@ const Account = () => {
                   <button
                     onClick={() => {
                       setShowForgotPassword(true);
-                      setMessage(null); // Clear messages on navigation
+                      setMessage(null);
                     }}
                     className="text-red-700 font-semibold hover:underline focus:outline-none"
                   >
@@ -309,7 +278,7 @@ const Account = () => {
                 <button
                   onClick={() => {
                     setIsLogin(!isLogin);
-                    setMessage(null); // Clear messages on tab switch
+                    setMessage(null);
                   }}
                   className="bg-purple-700 text-white px-6 py-2 rounded-full font-semibold hover:bg-purple-800 transition-all duration-300 shadow-md"
                 >
@@ -325,4 +294,3 @@ const Account = () => {
 };
 
 export default Account;
-

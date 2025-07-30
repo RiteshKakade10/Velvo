@@ -5,6 +5,7 @@ import Mostro from './NEW/Mostro';
 import FENTYxSMURFS from './NEW/FENTYxSMURFS';
 import Nitro from './NEW/Nitro';
 import Palermo from './NEW/Palermo';
+import MensNewArrival from './NEW/MensNewArrival';
 // Import other components as needed...
 
 // Map of slug to component (all keys in lowercase and hyphenated)
@@ -13,6 +14,7 @@ const componentMap = {
   'palermo': <Palermo />,
   'fenty-x-smurfs': <FENTYxSMURFS />,
   'nitro': <Nitro />,
+  'mens-new-arrivals':<MensNewArrival/>
   // 'jerseystyling': <JerseyStyling />,
   // 'launchcalendar': <LaunchCalendar />,
 };

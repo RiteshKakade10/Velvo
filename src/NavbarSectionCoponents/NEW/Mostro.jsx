@@ -57,8 +57,9 @@ const FooterContent = () => (
 
 export default function Mostro() {
   return (
+    
     // The main container now holds both the content and the footer
-    <div className="pt-24 flex flex-col min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200">
+    <div className="pt-10 flex flex-col min-h-screen bg-neutral-950 text-white">
       {/* Main Content (adjust pt-20 based on navbar height) */}
       <main className="flex-grow px-4 sm:px-12 pt-24 pb-16">
         <h2 className="text-3xl sm:text-5xl font-bold text-center mb-12 text-gray-800 tracking-wide">

@@ -1,100 +1,80 @@
 import React from 'react';
-import Shoes1 from '../../assets/New1/ShoesMostro/Shoes1.jpg'
-import Shoes2 from '../../assets/New1/ShoesMostro/Shoes2.jpg'
-import Shoes3 from '../../assets/New1/ShoesMostro/Shoes3.jpg'
-import Shoes4 from '../../assets/New1/ShoesMostro/Shoes4.jpg'
-import Shoes5 from '../../assets/New1/ShoesMostro/Shoes5.jpg'
+import Shoes1 from '../../assets/New1/ShoesMostro/Shoes1.jpg';
+import Shoes2 from '../../assets/New1/ShoesMostro/Shoes2.jpg';
+import Shoes3 from '../../assets/New1/ShoesMostro/Shoes3.jpg';
+import Shoes4 from '../../assets/New1/ShoesMostro/Shoes4.jpg';
+import Shoes5 from '../../assets/New1/ShoesMostro/Shoes5.jpg';
 
-const sneakers = [
-  {
-    name: 'Mostro Core Black',
-    price: '₹6,999',
-    image: Shoes1,
-  },
-  {
-    name: 'Mostro White Flame',
-    price: '₹7,499',
-    image: Shoes2,
-  },
-  {
-    name: 'Mostro Shadow Grey',
-    price: '₹6,499',
-    image: Shoes3,
-  },
-  {
-    name: 'Mostro Blue Flame',
-    price: '₹7,499',
-    image: Shoes4,
-  },
-  {
-    name: 'Mostro Red Grey',
-    price: '₹6,499',
-    image: Shoes5,
-  },
+const monstroFashion = [
+  { name: 'Mostro Core Black Sneakers', price: '₹6,999', category: 'Footwear', image: Shoes1 },
+  { name: 'Mostro White Flame Sneakers', price: '₹7,499', category: 'Footwear', image: Shoes2 },
+  { name: 'Mostro Shadow Grey Sneakers', price: '₹6,499', category: 'Footwear', image: Shoes3 },
+  { name: 'Monstro Blue Flame Sneakers', price: '₹7,499', category: 'Footwear', image: Shoes4 },
+  { name: 'Mostro Black T-shirt', price: '₹1,299', category: 'Apparel', image: Shoes5 },
+  { name: 'Mostro Graphic Hoodie', price: '₹2,999', category: 'Apparel', image: 'https://images.unsplash.com/photo-1578632616428-f6825c9b8f2d?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { name: 'Mostro Slim-Fit Jeans', price: '₹3,499', category: 'Apparel', image: 'https://images.unsplash.com/photo-1560731478-f80e9a7e0d37?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { name: 'Mostro Signature Cap', price: '₹999', category: 'Accessories', image: 'https://images.unsplash.com/photo-1582234036109-17c1815f9e83?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { name: 'Monstro Sport Socks (3-Pack)', price: '₹499', category: 'Accessories', image: 'https://images.unsplash.com/photo-1616892550186-b4844391216b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
 ];
-
-// Define your footer content directly within this component, or you could import a separate Footer component
-// if you want to keep the Mostro component itself cleaner.
-const FooterContent = () => (
-  <footer className="bg-gray-800 text-white py-8 px-4 sm:px-12 mt-16">
-    <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
-      <div className="mb-4 sm:mb-0">
-        <p className="text-lg font-semibold">Mostro Sneakers</p>
-        <p className="text-sm text-gray-400">Step up your style game.</p>
-      </div>
-      <div className="flex space-x-6">
-        <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">About Us</a>
-        <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Contact</a>
-        <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
-      </div>
-      <p className="text-sm text-gray-500 mt-4 sm:mt-0">
-        &copy; {new Date().getFullYear()} Mostro Inc. All rights reserved.
-      </p>
-    </div>
-  </footer>
-);
-
 
 export default function Mostro() {
   return (
-    
-    // The main container now holds both the content and the footer
-    <div className="pt-10 flex flex-col min-h-screen bg-neutral-950 text-white">
-      {/* Main Content (adjust pt-20 based on navbar height) */}
-      <main className="flex-grow px-4 sm:px-12 pt-24 pb-16">
-        <h2 className="text-3xl sm:text-5xl font-bold text-center mb-12 text-gray-800 tracking-wide">
-          Mostro Sneakers Collection
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center py-20 px-6">
+
+      {/* Full-width discount header */}
+      <header className="w-screen -mx-6 bg-orange-500 text-white text-center py-12 shadow-md mb-12">
+        <h2 className="text-4xl font-extrabold tracking-wide uppercase">
+          🔥 Big Sale! Get Up To 40% Off On Mostro Collection 🔥
         </h2>
+        <p className="text-lg md:text-xl font-medium mt-4">
+          Limited Time Offer — Shop Now & Save More!
+        </p>
+      </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sneakers.map((sneaker, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
-            >
-              <img
-                src={sneaker.image}
-                alt={sneaker.name}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800">
-                  {sneaker.name}
-                </h3>
-                <p className="mt-2 text-lg text-indigo-600 font-medium">
-                  {sneaker.price}
-                </p>
-                <button className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">
-                  Shop Now
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
+      {/* Intro section */}
+      <section className="pt-3 min-h-screen flex flex-col items-center justify-start px-8 py-20">
+        <h1 className="text-5xl md:text-7xl font-extrabold text-center mb-8 
+                       bg-gradient-to-r from-red-600 via-pink-500 to-yellow-500
+                       bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(220,38,38,0.8)]
+                       tracking-wide">
+          Mostro Sneakers
+        </h1>
+        <p className="max-w-3xl text-center text-lg md:text-xl text-gray-300 leading-relaxed">
+          The <span className="text-red-400 font-bold">Mostro Collection</span> is designed 
+          to redefine your style. Inspired by modern streetwear and engineered 
+          for maximum comfort, these sneakers bring together <span className="text-yellow-400">performance</span>, 
+          <span className="text-pink-400"> elegance</span>, and <span className="text-red-400">bold looks</span>.  
+          Whether on the streets or in the spotlight, step into confidence with Mostro.
+        </p>
 
-      {/* The Footer is now directly rendered here within the Mostro component's div */}
-      
+        <button onClick={()=>document.getElementById("sneakers-section").scrollIntoView({ behavior: "smooth" })} className="mt-10 px-8 py-3 bg-gradient-to-r from-red-600 via-pink-500 to-yellow-500 
+                           text-white font-semibold rounded-full shadow-lg hover:opacity-90 transition">
+          Explore Collection ↓
+        </button>
+      </section>
+
+      {/* Product grid */}
+      <div id="sneakers-section" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {monstroFashion.map((sneaker, index) => (
+          <div key={index} className="flex flex-col items-center text-center">
+            <img
+              src={sneaker.image}
+              alt={sneaker.name}
+              className="w-72 h-72 object-cover rounded-b-2xl shadow-lg"
+            />
+            <h3 className="mt-6 text-xl font-semibold tracking-wide">
+              {sneaker.name}
+            </h3>
+            <p className="mt-2 text-lg font-bold text-gray-300">
+              {sneaker.price}
+            </p>
+            <button className="mt-4 px-6 py-2 bg-indigo-600 text-white rounded-full 
+                               hover:bg-indigo-700 transition shadow-lg hover:shadow-indigo-500/50">
+              Shop Now
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

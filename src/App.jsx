@@ -11,8 +11,10 @@ import Contact from './Pages/Contact.jsx';
 import MainPageRendering from './NavbarSectionCoponents/MainPageRendering.jsx';
 
 function App() {
+ 
   return (
     <BrowserRouter basename="/Velvo">
+
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

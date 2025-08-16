@@ -11,12 +11,28 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // You can add logic here to send the message (email API, backend, etc.)
-    alert('Message sent successfully!');
-    setForm({ name: '', email: '', message: '' }); // Clear form
-  };
+
+  //handelling submit
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost:4040/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    if (!response.ok) throw new Error("Failed to send message");
+
+    alert("Message sent successfully!");
+    setForm({ name: '', email: '', message: '' });
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong. Please try again.");
+  }
+};
+
 
   return (
     <div>

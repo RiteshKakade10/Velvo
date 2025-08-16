@@ -101,18 +101,18 @@ export default function Home() {
   const currentItems = allProducts[activeTab];
 
   return (
-    <div className="pt-24 min-h-screen bg-gradient-to-br from-gray-50 via-slate-100 to-gray-200">
+    <div className="pt-24 min-h-screen bg-white">
       {/* Hero */}
       <section className="text-center py-16 px-4">
         <motion.h1
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl font-extrabold text-purple-800"
+          className="text-4xl sm:text-5xl font-extrabold text-black"
         >
           Welcome to VELVO
-        </motion.h1>
-        <p className="mt-3 text-md sm:text-lg text-gray-600 max-w-xl mx-auto">
+        </motion.h1> 
+        <p className="mt-3 text-md sm:text-lg text-black max-w-xl mx-auto">
           Elevate your fashion game — modern fits, clean styles, and comfort that lasts.
         </p>
         <button className="mt-6 px-6 py-2 bg-purple-700 hover:bg-purple-800 text-white rounded-full font-semibold transition duration-300">

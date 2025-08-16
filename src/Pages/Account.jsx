@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Custom Message Box Component
@@ -27,6 +27,9 @@ const MessageBox = ({ message, type, onClose }) => {
 const ForgotPasswordForm = ({ onBackToLogin, showMessage }) => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
+  useEffect(()=>{
+
+  },[])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -163,7 +166,7 @@ const Account = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white-100 flex items-center justify-center px-4 font-inter">
+    <div className="min-h-screen bg-neutral-950 flex items-center justify-center px-4 font-inter">
       <AnimatePresence>
         <MessageBox message={message} type={messageType} onClose={() => setMessage(null)} />
       </AnimatePresence>

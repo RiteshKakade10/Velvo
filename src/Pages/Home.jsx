@@ -81,38 +81,39 @@ export default function Home() {
   const mergedProducts = Object.values(allProducts).flat();
 
   return (
-    <div className="pt-47 min-h-screen bg-black text-white">
+    <div className="pt-45 min-h-screen bg-black text-white">
       {/* Hero */}
       <section className="text-center py-16 px-4">
         <motion.h1
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl font-extrabold 
-                     bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
-                     bg-clip-text text-transparent drop-shadow-lg"
-        >
-          Welcome to VELVO
-        </motion.h1>
-        <p className="max-w-3xl mx-auto mt-4 text-lg md:text-xl text-gray-300 leading-relaxed">
-          At <span className="text-pink-400 font-bold">VELVO</span>, we believe fashion is more than 
-          just clothing — it’s a <span className="text-yellow-400">statement of identity</span>.  
-          Our collections are inspired by <span className="text-red-400">modern streetwear</span>, 
-          balanced with <span className="text-pink-400">timeless elegance</span> and crafted for 
-          <span className="text-yellow-400">unmatched comfort</span>.  
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl sm:text-6xl font-extrabold 
+                      text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] mb-8"
+          >
+            Welcome to VELVO
+          </motion.h1>
+        <p className="max-w-3xl mx-auto mt-6 text-lg md:text-xl text-gray-300 leading-relaxed">
+          At <span className="text-red-400 font-bold">VELVO</span>, we believe fashion is more than 
+          just clothing — it’s a <span className="text-indigo-400">statement of identity</span>.  
+          Our collections are inspired by <span className="text-blue-300">modern streetwear</span>, 
+          balanced with <span className="text-indigo-400">timeless elegance</span> and crafted for 
+          <span className="text-blue-400">unmatched comfort</span>.  
           <br /><br />
-          From <span className="text-red-400">bold everyday fits</span> to 
-          <span className="text-pink-400">premium lifestyle pieces</span>,  
+          From <span className="text-blue-400">bold everyday fits</span> to 
+          <span className="text-indigo-400">premium lifestyle pieces</span>,  
           every design is made to help you express confidence, creativity, and 
-          <span className="text-yellow-400">authentic style</span>.  
-          Step into the world of <span className="text-pink-400 font-semibold">VELVO</span> — 
-          where fashion meets <span className="text-red-400">performance</span> and 
-          <span className="text-yellow-400">attitude</span>.
+          <span className="text-blue-400">authentic style</span>.  
+          Step into the world of <span className="text-blue-400 font-semibold">VELVO</span> — 
+          where fashion meets <span className="text-indigo-400">performance</span> and 
+          <span className="text-blue-400">attitude</span>.
         </p>
 
-        
-         <button onClick={()=>document.getElementById("sneakers-section").scrollIntoView({ behavior: "smooth" })} className="mt-10 px-8 py-3 bg-gradient-to-r from-red-600 via-pink-500 to-yellow-500 
-                           text-white font-semibold rounded-full shadow-lg hover:opacity-90 transition">
+        <button 
+          onClick={()=>document.getElementById("sneakers-section").scrollIntoView({ behavior: "smooth" })}
+          className="mt-10 px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 
+                     text-white font-semibold rounded-full shadow-lg hover:opacity-90 transition"
+        >
           Explore Collection ↓
         </button>
       </section>
@@ -120,8 +121,7 @@ export default function Home() {
       {/* All Products in ONE GRID */}
       <section id="sneakers-section" className="max-w-7xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold mb-6 text-center 
-                       bg-gradient-to-r from-red-500 via-pink-500 to-yellow-400 
-                       bg-clip-text text-transparent drop-shadow">
+                       text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.7)]">
           All Products
         </h2>
 
@@ -146,7 +146,8 @@ export default function Home() {
 
                 <button
                   onClick={() => addToCart(item)}
-                  className="mt-3 w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-full transition shadow-md hover:shadow-purple-500/40"
+                  className="mt-3 w-full bg-gradient-to-r from-blue-500 to-indigo-600 
+                             hover:opacity-90 text-white font-medium py-2 rounded-full transition shadow-md"
                 >
                   {inCart ? `Add More (${inCart.qty})` : 'Add to Cart'}
                 </button>
@@ -155,9 +156,9 @@ export default function Home() {
                   onClick={() => toggleWishlist(item)}
                   className={`mt-2 w-full border ${
                     inWishlist
-                      ? 'border-pink-500 text-pink-500'
+                      ? 'border-indigo-500 text-blue-400'
                       : 'border-gray-600 text-gray-300'
-                  } py-2 rounded-full hover:bg-pink-50/10 transition font-medium`}
+                  } py-2 rounded-full hover:bg-indigo-50/10 transition font-medium`}
                 >
                   {inWishlist ? '❤️ Added to Wishlist' : '🤍 Add to Wishlist'}
                 </button>

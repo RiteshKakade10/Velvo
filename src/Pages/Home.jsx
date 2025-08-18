@@ -94,8 +94,7 @@ export default function Home() {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl sm:text-6xl font-extrabold 
-                      text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] mb-8"
+            className="text-5xl sm:text-6xl font-extrabold mb-8"
           >
             Welcome to VELVO
           </motion.h1>

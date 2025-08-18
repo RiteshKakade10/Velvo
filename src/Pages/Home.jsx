@@ -74,6 +74,12 @@ export default function Home() {
         image: 'https://images.unsplash.com/photo-1520962918287-7448c2878f65?w=600&h=400&fit=crop&auto=format',
         price: 1299,
       },
+      {
+        id: 17,
+        title: 'flipflops',
+        image: 'https://images.unsplash.com/photo-1520962918287-7448c2878f65?w=600&h=400&fit=crop&auto=format',
+        price: 1799,
+      },
     ],
   };
 

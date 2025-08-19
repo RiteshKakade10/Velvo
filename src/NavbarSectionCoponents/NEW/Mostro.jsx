@@ -4,6 +4,7 @@ import Shoes2 from '../../assets/New1/ShoesMostro/Shoes2.jpg';
 import Shoes3 from '../../assets/New1/ShoesMostro/Shoes3.jpg';
 import Shoes4 from '../../assets/New1/ShoesMostro/Shoes4.jpg';
 import Shoes5 from '../../assets/New1/ShoesMostro/Shoes5.jpg';
+import Image11 from '../../assets/Monstro/Monstro1.jpg'
 
 const monstroFashion = [
   { name: 'Mostro Core Black Sneakers', price: '₹6,999', category: 'Footwear', image: Shoes1 },
@@ -19,10 +20,8 @@ const monstroFashion = [
 
 export default function Mostro() {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center py-20 px-6">
-
-      {/* Full-width discount header */}
-      <header className="w-screen -mx-6 bg-gradient-to-r from-red to-indigo-400 text-white text-center py-12 shadow-md mb-12">
+    <div className="min-h-screen text-black flex flex-col items-center justify-center py-8 px-6">
+      <header className="w-screen -mx-6 bg-gradient-to-r from-red to-indigo-400 text-black text-center py-12 shadow-md mb-12">
         <h2 className="text-4xl font-extrabold tracking-wide uppercase">
           🔥 Big Sale! Get Up To 40% Off On Mostro Collection 🔥
         </h2>
@@ -31,28 +30,37 @@ export default function Mostro() {
         </p>
       </header>
 
-      {/* Intro section */}
-      <section className="pt-3 min-h-screen flex flex-col items-center justify-start px-8 py-20">
-        <h1 class="text-5xl md:text-7xl font-extrabold text-center mb-8 
-           text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]
-           tracking-wide">
-          Mostro Sneakers
-        </h1>
-        <p className="max-w-3xl text-center text-lg md:text-xl text-gray-300 leading-relaxed">
-          The <span className="text-blue-400 font-bold">Mostro Collection</span> is designed 
-          to redefine your style. Inspired by modern streetwear and engineered 
-          for maximum comfort, these sneakers bring together <span className="text-indigo-400">performance</span>, 
-          <span className="text-blue-300"> elegance</span>, and <span className="text-indigo-500">bold looks</span>.  
-          Whether on the streets or in the spotlight, step into confidence with Mostro.
-        </p>
+     {/* Intro section */}
+<section className="relative min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-center px-8 py-20">
 
-        <button 
-          onClick={() => document.getElementById("sneakers-section").scrollIntoView({ behavior: "smooth" })}
-          className="mt-10 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 
-                     rounded-full shadow-lg hover:shadow-xl transition duration-300 ease-in-out font-semibold">
-          Explore Collection ↓
-        </button>
-      </section>
+  {/* Left Grid: Logo */}
+  <div className="flex items-center justify-center">
+    <img
+      src={Image11}
+      alt="Mostro Logo"
+      className="w-[70%] md:w-[80%] opacity-100"
+    />
+  </div>
+
+  {/* Middle Grid: Title */}
+  <div className="flex flex-col items-center text-center">
+    <h1 className="text-5xl md:text-7xl font-extrabold text-black mb-8 drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
+      Mostro Sneakers
+    </h1>
+  </div>
+
+  {/* Right Grid: Description */}
+  <div className="flex items-center justify-center">
+    <p className="max-w-md text-lg md:text-xl text-gray-950 leading-relaxed font-sans text-center md:text-left">
+      The Mostro Collection is designed to redefine your style. Inspired by modern
+      streetwear and engineered for maximum comfort, these sneakers bring together
+      performance, elegance, and bold looks. Whether on the streets or in the
+      spotlight, step into confidence with Mostro.
+    </p>
+  </div>
+</section>
+
+
 
       {/* Product grid */}
       <div id="sneakers-section" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -69,7 +77,7 @@ export default function Mostro() {
             <p className="mt-2 text-lg font-bold text-gray-300">
               {sneaker.price}
             </p>
-            <button className="mt-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-2 
+            <button className="mt-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-black px-6 py-2 
                                rounded-full shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
               Shop Now
             </button>

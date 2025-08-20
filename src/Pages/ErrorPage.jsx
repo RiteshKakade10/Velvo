@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import errorImage from "../assets/error-image.jpg"; // replace with your image path
+import errorImage from "../assets/ErrorImage.jpg"; 
 
 export default function ErrorPage() {
   return (
     <main className="min-h-screen bg-white flex flex-col lg:flex-row">
-      {/* Left Side: Image */}
       <div className="lg:w-1/2 w-full h-64 lg:h-auto">
         <img
           src={errorImage}
@@ -13,7 +12,6 @@ export default function ErrorPage() {
         />
       </div>
 
-      {/* Right Side: Error Content */}
       <div className="lg:w-1/2 w-full flex items-center justify-center px-6 py-24 sm:py-32 lg:px-16 text-black">
         <div className="grid gap-8 text-center lg:text-left">
           <p className="text-base font-semibold text-red-500">404</p>
@@ -32,7 +30,7 @@ export default function ErrorPage() {
               Go back home
             </Link>
             <a
-              href="#"
+              href="contact"
               className="text-sm font-semibold text-gray-400 hover:text-indigo-600"
             >
               Contact support <span aria-hidden="true">&rarr;</span>

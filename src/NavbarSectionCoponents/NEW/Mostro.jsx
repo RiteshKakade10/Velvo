@@ -4,8 +4,8 @@ import Shoes2 from '../../assets/New1/ShoesMostro/Shoes2.jpg';
 import Shoes3 from '../../assets/New1/ShoesMostro/Shoes3.jpg';
 import Shoes4 from '../../assets/New1/ShoesMostro/Shoes4.jpg';
 import Shoes5 from '../../assets/New1/ShoesMostro/Shoes5.jpg';
-import Image11 from '../../assets/Monstro/Monstro1.jpg'
-
+import Image11 from '../../assets/Monstro/Monstro1.jpg';
+import { Link } from 'react-router-dom';
 const monstroFashion = [
   { name: 'Mostro Core Black Sneakers', price: '₹6,999', category: 'Footwear', image: Shoes1 },
   { name: 'Mostro White Flame Sneakers', price: '₹7,499', category: 'Footwear', image: Shoes2 },
@@ -47,7 +47,14 @@ export default function Mostro() {
     <h1 className="text-5xl md:text-7xl font-extrabold text-black mb-8 drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
       Mostro Sneakers
     </h1>
+      <Link to="/monstro-page1">
+      <button className="mt-8 px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 
+                        text-white font-semibold rounded-full shadow-lg hover:opacity-90 transition"
+            >
+              Shop Now
+        </button></Link>
   </div>
+
 
   {/* Right Grid: Description */}
   <div className="flex items-center justify-center">

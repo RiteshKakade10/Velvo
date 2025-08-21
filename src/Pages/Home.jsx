@@ -4,6 +4,8 @@ import heroImage from '../assets/Home/Home3.jpg';
 import tshirt1 from '../assets/whitetshirt.jpg';
 import tshirt2 from '../assets/womenshirt.jpg';
 import tshirt3 from '../assets/tshirt3.jpg';
+import Contact from '../Pages/Contact.jsx';
+import Mostro from '../NavbarSectionCoponents/NEW/Mostro.jsx';
 
 export default function Home() {
   return (
@@ -84,28 +86,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-         <section id="gallery-section" className="relative py-20 px-0">
-            <div className="w-screen bg-gray-600 text-white text-center py-3 px-4 text-sm sm:text-base font-semibold tracking-wide">
-              EXTRA 10% ON ORDERS ABOVE ₹4499 — Discount auto-applied at checkout | *Exclusions Apply
+         <section id="gallery-section" className="relative py-2 px-0">
+            <div>
+              <Mostro/>
             </div>
-            <div className="max-w-7xl mx-auto px-6 mt-16">
-            </div>
-      </section>
-
-      
+      </section> 
     </div>
   );
 }
 
-
-{/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="overflow-hidden rounded-2xl shadow-lg">
-            <img src={tshirt1} alt="Velvo 1" className="w-full h-[400px] object-cover hover:scale-105 transition duration-500" />
-          </div>
-          <div className="overflow-hidden rounded-2xl shadow-lg">
-            <img src={tshirt2} alt="Velvo 2" className="w-full h-[400px] object-cover hover:scale-105 transition duration-500" />
-          </div>
-          <div className="overflow-hidden rounded-2xl shadow-lg">
-            <img src={tshirt3} alt="Velvo 3" className="w-full h-[400px] object-cover hover:scale-105 transition duration-500" />
-          </div>
-        </div> */}

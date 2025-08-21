@@ -10,6 +10,10 @@ import About from './Pages/About.jsx';
 import Contact from './Pages/Contact.jsx';
 import MainPageRendering from './NavbarSectionCoponents/MainPageRendering.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
+import Products from './Pages/Products/Products.jsx';
+import CreateProduct from './Pages/Products/CreateProduct.jsx';
+import MonstroPage1 from '../src/NavbarSectionCoponents/NEW/Monstro-Pages/monstroPage1.jsx';
+
 
 function App() {
  
@@ -25,7 +29,12 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/New/:category" element={<MainPageRendering />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/create-product" element={<CreateProduct />} />
         <Route path='*' element={<ErrorPage/>}></Route>
+
+        //monstro Routes
+       <Route path='/monstro-page1' element={<MonstroPage1/>}></Route>
       </Routes>
       <Footer/>
     </BrowserRouter>

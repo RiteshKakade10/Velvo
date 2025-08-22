@@ -1,18 +1,22 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import BGImage from "../../assets/Nitro/background.jpg";
+import BGImage from "../../assets/Nitro/nitro2.jpg";
+import { Link } from 'react-router-dom';
 
 export default function Nitro() {
   return (
     <div
-      className="pt-24 min-h-screen bg-neutral-950 text-white px-6 md:px-20 relative"
+      className="pt-24 min-h-screen bg-white text-black px-6 md:px-20 relative"
       style={{
         backgroundImage: `url(${BGImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "full",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat", 
+        width: "100%",
+        height: "100vh",
       }}
     >
-      {/* Dark overlay for better text readability */}
+      
       <div className="absolute inset-0 bg-black/60"></div>
 
       <motion.div
@@ -29,14 +33,15 @@ export default function Nitro() {
           Engineered for performance, built for lifestyle. Step up your sneaker game.
         </p>
 
+        <Link to="/nitro-page1">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
-          onClick={()=>alert("Porducts Are Not Added")}
         >
           Explore Collection
         </motion.button>
+        </Link>
       </motion.div>
     </div>
   )

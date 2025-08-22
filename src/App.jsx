@@ -13,6 +13,7 @@ import ErrorPage from './Pages/ErrorPage.jsx';
 import Products from './Pages/Products/Products.jsx';
 import CreateProduct from './Pages/Products/CreateProduct.jsx';
 import MonstroPage1 from '../src/NavbarSectionCoponents/NEW/Monstro-Pages/monstroPage1.jsx';
+import NitroPage1 from './NavbarSectionCoponents/NEW/Nitro-Pages/nitropage1.jsx';
 
 
 function App() {
@@ -33,8 +34,10 @@ function App() {
         <Route path="/create-product" element={<CreateProduct />} />
         <Route path='*' element={<ErrorPage/>}></Route>
 
-        //monstro Routes
+        {/*monstro page*/}
        <Route path='/monstro-page1' element={<MonstroPage1/>}></Route>
+       {/*nitro page*/}
+       <Route path='/nitro-page1' element={<NitroPage1 />} />
       </Routes>
       <Footer/>
     </BrowserRouter>

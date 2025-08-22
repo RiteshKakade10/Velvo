@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // ✅ Message Box Component
@@ -19,7 +19,7 @@ const MessageBox = ({ message, type, onClose }) => {
   );
 };
 
-// ✅ Forgot Password Component
+// ✅ Forgot Password Form
 const ForgotPasswordForm = ({ onBackToLogin, showMessage }) => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -27,12 +27,11 @@ const ForgotPasswordForm = ({ onBackToLogin, showMessage }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Fake delay
+      await new Promise(resolve => setTimeout(resolve, 1500)); // Fake API delay
       showMessage(`If an account with ${email} exists, a reset link has been sent.`, 'success');
       setEmail('');
-    } catch (error) {
+    } catch {
       showMessage('Server error. Please try again later.', 'error');
     } finally {
       setLoading(false);
@@ -45,19 +44,18 @@ const ForgotPasswordForm = ({ onBackToLogin, showMessage }) => {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -100 }}
       transition={{ duration: 0.5 }}
-      className="p-10 bg-white"
+      className="p-6 sm:p-10 bg-white rounded-lg shadow-lg w-full"
     >
-      <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800">
         Reset Your Password
       </h2>
-
-      <form className="space-y-5" onSubmit={handleSubmit}>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-purple-700 focus:outline-none transition"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-700 focus:outline-none transition"
           required
         />
         <button
@@ -68,7 +66,6 @@ const ForgotPasswordForm = ({ onBackToLogin, showMessage }) => {
           {loading ? 'Sending...' : 'Send Reset Link'}
         </button>
       </form>
-
       <p className="text-sm text-center mt-4 text-gray-600">
         Remembered your password?{' '}
         <button
@@ -101,10 +98,7 @@ const Account = () => {
   const showMessage = (msg, type) => {
     setMessage(msg);
     setMessageType(type);
-    setTimeout(() => {
-      setMessage(null);
-      setMessageType(null);
-    }, 5000);
+    setTimeout(() => setMessage(null), 5000);
   };
 
   const handleChange = (e) => {
@@ -152,18 +146,15 @@ const Account = () => {
 
       showMessage(data.message || (isLogin ? 'Login Successful' : 'Registered Successfully'), 'success');
 
-      // Save token on login
-      if (isLogin && data.jwtToken) {
-        localStorage.setItem('token', data.jwtToken);
-      }
+      if (isLogin && data.jwtToken) localStorage.setItem('token', data.jwtToken);
 
-      // Reset form
       setFormData({
         name: '', email: '', password: '', phone: '', role: 'customer',
         address: { street: '', city: '', state: '', country: '', zipCode: '' }
       });
+
       if (!isLogin) setIsLogin(true);
-    } catch (err) {
+    } catch {
       showMessage('Server Error', 'error');
     } finally {
       setLoading(false);
@@ -171,7 +162,7 @@ const Account = () => {
   };
 
   return (
-    <div className="pt-30 min-h-screen bg-white flex items-center justify-center px-4 font-inter">
+    <div className="pt-40 pb-10 min-h-screen bg-gray-50 flex items-center justify-center px-4 font-inter">
       <AnimatePresence>
         <MessageBox message={message} type={messageType} onClose={() => setMessage(null)} />
       </AnimatePresence>
@@ -180,10 +171,10 @@ const Account = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="bg-white rounded-tl-full shadow-2xl w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 overflow-hidden"
+        className="bg-white rounded-lg shadow-2xl w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 overflow-hidden"
       >
-        {/* Left Info Section */}
-        <div className="hidden md:flex flex-col items-center justify-center bg-gradient-to-br from-purple-600 to-blue-600 text-white p-10 relative overflow-hidden">
+        {/* Left Info Section for Desktop */}
+        <div className="hidden md:flex flex-col items-center justify-center bg-gradient-to-br from-purple-600 to-blue-600 text-white p-10">
           <h2 className="text-4xl font-bold mb-3">
             {showForgotPassword ? 'Need a Reset?' : (isLogin ? 'Welcome Back!' : 'Join Us!')}
           </h2>
@@ -219,17 +210,30 @@ const Account = () => {
           ) : (
             <motion.div
               key="auth"
-              initial={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
+              exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="p-10 bg-white"
+              className="p-6 sm:p-10 w-full"
             >
-              <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+              {/* Mobile Toggle */}
+              <div className="flex justify-center mb-6 md:hidden">
+                <button
+                  onClick={() => {
+                    setIsLogin(!isLogin);
+                    setMessage(null);
+                  }}
+                  className="bg-purple-700 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-800 transition"
+                >
+                  {isLogin ? 'Register' : 'Login'}
+                </button>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800">
                 {isLogin ? 'Login to Your Account' : 'Create a New Account'}
               </h2>
 
-              <form className="space-y-5" onSubmit={handleSubmit}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 {!isLogin && (
                   <>
                     <input type="text" name="name" placeholder="Full Name"
@@ -246,9 +250,8 @@ const Account = () => {
                       <option value="seller">Seller</option>
                     </select>
 
-                    {/* Address Fields */}
                     <h3 className="font-semibold text-gray-700">Address</h3>
-                    {['street','city','state','country','zipCode'].map((field) => (
+                    {['street','city','state','country','zipCode'].map(field => (
                       <input key={field} type="text" name={field} placeholder={field}
                         value={formData.address[field]} onChange={handleAddressChange}
                         className="w-full px-4 py-2 border rounded-lg mb-2" />

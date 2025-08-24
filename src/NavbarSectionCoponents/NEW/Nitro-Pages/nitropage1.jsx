@@ -26,7 +26,7 @@ export default function NitroPage1() {
       <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-16">
         Nitro Shoes Collection ⚡
       </h1>
-
+      
       <div className="max-w-6xl mx-auto flex flex-col gap-12">
         {currentShoes.map((shoe, idx) => (
           <div

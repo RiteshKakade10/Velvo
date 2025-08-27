@@ -1,1 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;600&display=swap');
 @import "tailwindcss";
+xx
+
+.stylish-heading {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+.stylish-text {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}

@@ -18,15 +18,6 @@ const jerseyCategories = [
   "Table Tennis Jersey",
   "Wrestling Jersey",
   "Boxing Jersey",
-  // "Esports Jersey",
-  // "Handball Jersey",
-  // "Golf Jersey",
-  // "Skating Jersey",
-  // "Karate Jersey",
-  // "Judo Jersey",
-  // "Martial Arts Jersey",
-  // "Rowing Jersey",
-  // "Shooting Jersey",
 ];
 
 export default function JerseyPage() {

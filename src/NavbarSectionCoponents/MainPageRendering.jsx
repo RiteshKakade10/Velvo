@@ -6,14 +6,15 @@ import FENTYxSMURFS from './NEW/FENTYxSMURFS';
 import Nitro from './NEW/Nitro';
 import Palermo from './NEW/Palermo';
 import MensNewArrival from './NEW/MensNewArrival';
+import Jersey from './NEW/Jersey';
 
 const componentMap = {
   'mostro': <Mostro />,
   'palermo': <Palermo />,
   'fenty-x-smurfs': <FENTYxSMURFS />,
   'nitro': <Nitro />,
-  'mens-new-arrivals':<MensNewArrival/>
-  // 'jerseystyling': <JerseyStyling />,
+  'mens-new-arrivals':<MensNewArrival/>,
+  'jersey-styling': <Jersey />,
   // 'launchcalendar': <LaunchCalendar />,
 };
 

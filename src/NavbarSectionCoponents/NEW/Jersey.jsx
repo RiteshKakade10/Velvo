@@ -54,7 +54,6 @@ export default function JerseyPage() {
 
   return (
     <div className="min-h-screen text-white relative overflow-hidden">
-      {/* ✅ Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{ backgroundImage: `url(${bgImage})` }}

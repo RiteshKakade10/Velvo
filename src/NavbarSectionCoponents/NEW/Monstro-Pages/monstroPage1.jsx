@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Shoes1 from "../../../assets/New1/ShoesMostro/Shoes1.jpg";
 
 export default function MonstroPage1() {
@@ -25,7 +26,7 @@ export default function MonstroPage1() {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9; // ✅ show 9 products in a 3×3 grid
+  const itemsPerPage = 9;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -51,36 +52,46 @@ export default function MonstroPage1() {
       </h1>
 
       {/* Product Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
-        {currentShoes.map((shoe) => (
-          <div
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-6">
+        {currentShoes.map((shoe, index) => (
+          <motion.div
             key={shoe.id}
-            className="bg-white/70 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 p-6 flex flex-col items-center"
+            whileHover={{ scale: 1.03 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+            className="group relative bg-gradient-to-b from-white/80 to-white/50 
+                       backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200/50 overflow-hidden"
           >
-            {/* Image */}
-            <img
-              src={shoe.Image}
-              alt={shoe.Name}
-              className="w-64 h-64 object-cover rounded-2xl shadow-md hover:scale-105 transition-transform duration-500"
-            />
-
-            {/* Info */}
-            <div className="mt-6 text-center space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">{shoe.Name}</h2>
-              <p className="text-sm text-gray-500 italic">{shoe.type} Series</p>
-              <span className="block text-2xl font-extrabold text-purple-700">
-                ₹{shoe.Prize.toLocaleString()}
-              </span>
+            {/* Image with hover zoom */}
+            <div className="relative overflow-hidden">
+              <img
+                src={shoe.Image}
+                alt={shoe.Name}
+                className="w-full h-72 object-cover transform group-hover:scale-110 transition-all duration-500 ease-in-out"
+              />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 
+                              group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                <button
+                  onClick={() => handleAddToCart(shoe)}
+                  className="px-6 py-2 bg-gradient-to-r from-purple-700 to-purple-900 
+                             text-white text-sm font-semibold rounded-full shadow-md hover:opacity-90 transition"
+                >
+                  🛒 Add to Cart
+                </button>
+              </div>
             </div>
 
-            {/* Add to Cart */}
-            <button
-              onClick={() => handleAddToCart(shoe)}
-              className="mt-6 w-full bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-800 hover:to-purple-950 text-white py-3 rounded-2xl font-semibold shadow-lg transform hover:scale-105 transition duration-300"
-            >
-              🛒 Add to Cart
-            </button>
-          </div>
+            {/* Info */}
+            <div className="p-6 flex flex-col items-center text-center">
+              <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-wide group-hover:text-purple-700 transition">
+                {shoe.Name}
+              </h3>
+              <p className="text-sm text-gray-500 italic">{shoe.type} Series</p>
+              <p className="text-2xl font-extrabold text-purple-700">₹{shoe.Prize.toLocaleString()}</p>
+            </div>
+          </motion.div>
         ))}
       </div>
 

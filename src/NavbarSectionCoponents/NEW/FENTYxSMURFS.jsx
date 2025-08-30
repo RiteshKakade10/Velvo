@@ -6,6 +6,7 @@ import img3 from '../../assets/New1/FentySmurfs/Image3.jpeg';
 import img4 from '../../assets/New1/FentySmurfs/Image4.jpeg';
 import img5 from '../../assets/New1/FentySmurfs/Image5.jpeg';
 import heroBg from '../../assets/New1/FentySmurfs/bg.jpg';
+import BgVideo from "../../assets/New1/FentySmurfs/fentysf.mp4";
 
 const shoes = [
   { name: 'Smurf Blue Blaze', price: '₹8,499', image: img1 },
@@ -17,25 +18,23 @@ const shoes = [
 
 export default function FENTYxSMURFS() {
   return (
-    <div
-      className="min-h-screen flex flex-col text-black"
-      style={{
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+    <div className="flex flex-col text-black">
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src={BgVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
 
-      <main className="flex-grow pt-28 pb-16 px-6 md:px-20 relative z-10">
-        {/* Hero Section */}
-        <motion.section
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-center py-20 px-6"
+          className="relative z-10 px-6"
         >
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
@@ -57,18 +56,6 @@ export default function FENTYxSMURFS() {
             in a drop that’s as fierce as it is fun.
           </motion.p>
 
-          <motion.ul
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="text-gray-300 text-left text-sm md:text-base space-y-2 max-w-xl mx-auto mb-10"
-          >
-            <li>• Oversized hoodies, bold puffers, street-style staples</li>
-            <li>• Statement jewelry & bags with Smurf detailing</li>
-            <li>• Limited-edition unisex sneakers</li>
-            <li>• Sustainable fabrics with high-fashion finishes</li>
-          </motion.ul>
-
           <motion.button
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
@@ -78,8 +65,11 @@ export default function FENTYxSMURFS() {
           >
             Explore the Drop
           </motion.button>
-        </motion.section>
-
+        </motion.div>
+      </section>
+      <main
+        className="flex-grow pt-28 pb-16 px-6 md:px-20 relative bg-neutral-950">
+    
         {/* Product Grid */}
         <motion.section
           initial={{ opacity: 0 }}
@@ -91,27 +81,44 @@ export default function FENTYxSMURFS() {
             Click here to buy products
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {shoes.map((shoe, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.03 }}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-2xl
-                           border border-white/20 transform transition-all duration-300"
+                className="group relative bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl 
+                          rounded-3xl shadow-lg border border-white/20 overflow-hidden"
               >
-                <img
-                  src={shoe.image}
-                  alt={shoe.name}
-                  className="w-full h-56 object-cover rounded-xl mb-4"
-                />
-                <h3 className="text-lg font-semibold text-white">{shoe.name}</h3>
-                <p className="text-indigo-300 font-medium">{shoe.price}</p>
-              </motion.div>
-            ))}
-          </div>
+                {/* Product Image */}
+                <div className="relative overflow-hidden">
+                  <img
+                    src={shoe.image}
+                    alt={shoe.name}
+                    className="w-full h-72 object-cover transform group-hover:scale-110 transition-all duration-500 ease-in-out"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 
+                                  group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                    <button className="px-6 py-2 bg-gradient-to-r from-indigo-500 to-blue-600 
+                                      text-white text-sm font-semibold rounded-full shadow-md hover:opacity-90 transition">
+                      Shop Now
+                    </button>
+                  </div>
+                </div>
+
+      {/* Product Info */}
+      <div className="p-6 flex flex-col items-center text-center">
+        <h3 className="text-xl font-bold text-white mb-2 tracking-wide group-hover:text-indigo-300 transition">
+          {shoe.name}
+        </h3>
+        <p className="text-lg font-semibold text-indigo-400">{shoe.price}</p>
+      </div>
+    </motion.div>
+  ))}
+</div>
         </motion.section>
       </main>
     </div>

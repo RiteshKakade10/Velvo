@@ -7,6 +7,7 @@ import Nitro from './NEW/Nitro';
 import Palermo from './NEW/Palermo';
 import MensNewArrival from './NEW/MensNewArrival';
 import Jersey from './NEW/Jersey';
+import LaunchCalendar from './NEW/LaunchCalender';
 
 const componentMap = {
   'mostro': <Mostro />,
@@ -15,7 +16,7 @@ const componentMap = {
   'nitro': <Nitro />,
   'mens-new-arrivals':<MensNewArrival/>,
   'jersey-styling': <Jersey />,
-  // 'launchcalendar': <LaunchCalendar />,
+  'launch-calendar': <LaunchCalendar />,
 };
 
 export default function MainPageRendering() {

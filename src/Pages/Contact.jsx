@@ -50,7 +50,7 @@ export default function ContactWithBg() {
 
   return (
     <div
-      className="pt-30 isolate bg-white px-6 py-24 sm:py-32 lg:px-8"
+      className="pt-30 isolate bg-neutral-950 px-6 py-24 sm:py-32 lg:px-8"
     >
       <div
         aria-hidden="true"
@@ -66,11 +66,11 @@ export default function ContactWithBg() {
       </div>
 
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+        <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           Contact sales
         </h2>
-        <p className="mt-2 text-lg/8 text-gray-600">
-          “Have a question? Don’t hesitate—our team is ready to help.”
+        <p className="mt-2 text-lg/8 text-white">
+          Have a question—our team is ready to help
         </p>
       </div>
 
@@ -195,7 +195,7 @@ export default function ContactWithBg() {
                 placeholder="123-456-7890"
                 value={form.phone}
                 onChange={handleChange}
-                className="flex-grow px-4 py-3 rounded-r-md focus:ring-2 focus:ring-indigo-500"
+                className="flex-grow px-4 py-3 rounded-r-md focus:ring-2 focus:ring-indigo-500 text-black"
               />
             </div>
           </div>

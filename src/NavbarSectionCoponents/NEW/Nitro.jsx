@@ -1,21 +1,20 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import BGImage from "../../assets/Nitro/nitro2.jpg";
 import { Link } from 'react-router-dom';
+import BgVideo from "../../assets/Nitro/nitroshoes.mp4";
 
 export default function Nitro() {
   return (
     <div
-      className="pt-24 min-h-screen bg-white text-black px-6 md:px-20 relative"
-      style={{
-        backgroundImage: `url(${BGImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat", 
-        width: "100%",
-        height: "100vh",
-      }}
-    >
+      className="pt-24 min-h-screen bg-white text-black px-6 md:px-20 relative">
+        <video
+                className="absolute inset-0 w-full h-full object-cover"
+                src={BgVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
       
       <div className="absolute inset-0 bg-black/60"></div>
 

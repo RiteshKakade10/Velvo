@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import bgImage from "../../assets/Jersey/Jerseybg.jpg";
+import BgVideo from "../../assets/Jersey/footbalteam.mp4";
 
 const jerseyCategories = [
   "Cricket Jersey",
@@ -24,12 +24,13 @@ export default function JerseyPage() {
   const [activeTab, setActiveTab] = useState(jerseyCategories[0]);
   const sectionRefs = useRef([]);
 
-  // Scroll to section when clicking on tab
   const handleScrollTo = (index) => {
-    sectionRefs.current[index].scrollIntoView({ behavior: "smooth", block: "start" });
+    sectionRefs.current[index].scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
-  // Detect active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       sectionRefs.current.forEach((ref, index) => {
@@ -44,13 +45,9 @@ export default function JerseyPage() {
   }, []);
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      />
-      {/* ✅ Subheader (Sticky under navbar) */}
-      <div className="fixed top-28 z-20 bg-black/70 backdrop-blur-sm shadow-md">
+    <div className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
+      {/* ✅ Sticky Subheader */}
+      <div className="fixed top-28 z-20 bg-black/70 backdrop-blur-sm shadow-md w-full">
         <div className="flex overflow-x-auto justify-center gap-6 px-4 py-3 text-sm font-semibold">
           {jerseyCategories.map((jersey, index) => (
             <button
@@ -75,8 +72,24 @@ export default function JerseyPage() {
           <section
             key={index}
             ref={(el) => (sectionRefs.current[index] = el)}
-            className="min-h-screen flex flex-col items-center justify-center border-b border-white/20"
+            className="relative min-h-screen flex flex-col items-center justify-center border-b border-white/20 overflow-hidden"
           >
+            {/* 🎥 Only Football Section gets Video Background */}
+            {jersey === "Football Jersey" && (
+              <>
+                <video
+                  className="absolute inset-0 w-full h-full object-cover -z-10"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={BgVideo} type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-black/40 -z-10"></div>
+              </>
+            )}
+
             <h2 className="text-4xl font-bold mb-6">{jersey}</h2>
             <p className="max-w-2xl text-center text-lg text-white/90">
               Explore our premium {jersey} collection crafted with high-quality

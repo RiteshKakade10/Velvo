@@ -6,7 +6,7 @@ const MegaMenu = ({ type, isMobile = false }) => {
     "new ⚡️": [
       {
         title: "Fast Lane Drip",
-        items: ["Nitro ⚡️", "Mostro", "Palermo", "FENTY x SMURFS", "Jersey Styling", "PUMA x RCB", "Launch Calendar"]
+        items: ["Nitro ⚡️", "Mostro", "Palermo", "FENTY x SMURFS", "Jersey Styling", "Formula F1", "Launch Calendar"]
       },
       {
         title: "New Arrivals",

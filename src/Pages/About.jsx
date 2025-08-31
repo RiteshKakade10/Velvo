@@ -23,7 +23,7 @@ const About = () => {
 
 
   return (
-    <main className="pt-28 min-h-screen bg-white flex flex-col lg:flex-row">
+    <main className="pt-28 min-h-screen bg-neutral-950 flex flex-col lg:flex-row">
       {/* Left Side - Image */}
       <div className="lg:w-1/2 w-full h-64 lg:h-auto">
         <img
@@ -36,7 +36,7 @@ const About = () => {
       {/* Right Side - Grid Content */}
       <div className="lg:w-1/2 w-full flex items-center justify-center px-6 py-24 sm:py-32 lg:px-16 text-black">
         <div className="grid gap-8 text-center lg:text-left">
-          <h2 className="text-3xl font-bold mb-6">Our Ethos</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white">Our Ethos</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
             {values.map((item, idx) => (

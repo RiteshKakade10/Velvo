@@ -8,6 +8,7 @@ import Palermo from './NEW/Palermo';
 import MensNewArrival from './NEW/MensNewArrival';
 import Jersey from './NEW/Jersey';
 import LaunchCalendar from './NEW/LaunchCalender';
+import FormulaF1 from './NEW/Formula/FormulaF1';
 
 const componentMap = {
   'mostro': <Mostro />,
@@ -17,6 +18,7 @@ const componentMap = {
   'mens-new-arrivals':<MensNewArrival/>,
   'jersey-styling': <Jersey />,
   'launch-calendar': <LaunchCalendar />,
+  'formula-f1':<FormulaF1/>
 };
 
 export default function MainPageRendering() {

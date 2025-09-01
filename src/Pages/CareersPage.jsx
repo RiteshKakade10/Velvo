@@ -1,11 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
+import ImgBG from '../assets/CareerPage/bgCareer.jpg';
 
 function CareersPage() {
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col">
+    <div className="pt-30 text-white min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center py-24 px-6">
+      <img 
+      src={ImgBG}
+      alt=""
+      className="absolute inset-0 w-full h-full object-cover -z-10"
+      />
+      <div className="absolute inset-0 bg-black/50 -z-10"></div>
+        
+      <section className="relative flex flex-col items-center justify-center text-center py-24 px-6 pt-70s">
         <motion.h1
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -25,7 +33,7 @@ function CareersPage() {
         </motion.p>
       </section>
 
-      {/* Why Join Us */}
+
       <section className="py-20 px-8 md:px-20 bg-gradient-to-b from-black to-gray-900">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -80,19 +88,40 @@ function CareersPage() {
               role: "Frontend Developer",
               location: "Remote / On-site",
               type: "Full-time",
+              Experience:"0-2",
+            },
+            {
+              role: "Graphics Designer",
+              location: "On-site (Pune)",
+              type: "Full-Time",
+              Experience:"0-1"
             },
             {
               role: "Backend Engineer",
               location: "Remote",
               type: "Full-time",
+              Experience:"4-6"
             },
             {
               role: "UI/UX Designer",
-              location: "On-site (Mumbai)",
+              location: "On-site (Pune)",
               type: "Internship",
+              Experience:"0-2"
+            },
+             {
+              role: "Devops Engineer",
+              location: "Remote",
+              type: "Full-time",
+              Experience:"1-2"
+            },
+            {
+              role: "Data Analytics",
+              location: "On-site (Pune)",
+              type: "Internship",
+              Experience:"2-4"
             },
           ].map((job, index) => (
-            <motion.div
+            <div
               key={index}
               whileHover={{ scale: 1.02 }}
               className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center justify-between"
@@ -100,7 +129,7 @@ function CareersPage() {
               <div>
                 <h3 className="text-2xl font-bold">{job.role}</h3>
                 <p className="text-gray-400">
-                  {job.location} • {job.type}
+                  {job.location} • {job.type} • {job.Experience}
                 </p>
               </div>
               <motion.button
@@ -109,7 +138,7 @@ function CareersPage() {
               >
                 Apply Now
               </motion.button>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>

@@ -1,30 +1,35 @@
-import React from 'react';
+import React from "react";
 
-// Sample data for upcoming fashion product launches
+import Img1 from '../../assets/LaunchCalender/shoes1.jpg'
+import Img2 from '../../assets/LaunchCalender/cloth1.jpg'
+import Img3 from '../../assets/LaunchCalender/cloth2.jpg'
+import Img4 from '../../assets/LaunchCalender/cloth3.jpg'
+import Img5 from '../../assets/LaunchCalender/shoes2.jpg'
+
 const launches = [
   {
-    date: '2025-09-01',
-    product: 'Autumn Collection Jacket',
-    description: 'A stylish autumn jacket for the fall season.',
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4', // Sample video URL
+    date: "2025-09-01",
+    product: "Autumn Collection Jacket",
+    description: "A stylish autumn jacket for the fall season.",
+    image: Img2,
   },
   {
-    date: '2025-09-10',
-    product: 'Limited Edition Sneakers',
-    description: 'Sneakers with unique design and limited availability.',
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    date: "2025-09-10",
+    product: "Limited Edition Sneakers",
+    description: "Sneakers with unique design and limited availability.",
+    image: Img5,
   },
   {
-    date: '2025-09-15',
-    product: 'Designer Handbag',
-    description: 'Premium leather handbag with elegant design.',
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    date: "2025-09-15",
+    product: "Premium Jecket",
+    description: "Premium leather Jacket with elegant design.",
+    image: Img4,
   },
   {
-    date: '2025-09-20',
-    product: 'Summer Dress Re-release',
-    description: 'Popular summer dress back in stock with new colors.',
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    date: "2025-09-20",
+    product: "Sports Shoes",
+    description: "Popular Sports Shoes back in stock with new colors.",
+    image: Img1,
   },
 ];
 
@@ -42,37 +47,46 @@ function LaunchCalendar() {
   const launchesByDate = getLaunchesByDate();
 
   return (
-    <div className="pt-16 bg-gray-900 min-h-screen">
-      <h1 className="text-4xl font-extrabold mb-10 text-center text-white tracking-wider">
-        Upcoming Fashion Product Launches
+    <div className="pt-28 bg-neutral-950 min-h-screen">
+      {/* Page Header */}
+      <h1 className="text-4xl md:text-6xl font-extrabold mb-14 text-center text-white tracking-widest uppercase">
+        Launch Calendar
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-12">
         {Object.keys(launchesByDate).map((date) => (
           <div
             key={date}
-            className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300"
+            className="bg-neutral-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group"
           >
-            <div className="bg-indigo-700 text-white text-center py-3 font-semibold tracking-wide">
+            {/* Date Header */}
+            <div className="bg-white text-black text-center py-3 font-semibold text-sm tracking-widest uppercase">
               {new Date(date).toDateString()}
             </div>
 
+            {/* Launch Cards */}
             {launchesByDate[date].map((launch, index) => (
-              <div key={index} className="p-4 border-t border-gray-700">
-                <h3 className="text-2xl font-bold text-white mb-2">{launch.product}</h3>
-                <p className="text-gray-300 mb-4">{launch.description}</p>
-                
-                {/* Video preview */}
-                {launch.video && (
-                  <video
-                    className="w-full rounded-lg shadow-md"
-                    src={launch.video}
-                    controls
-                    autoPlay={false}
-                    loop
-                    muted
-                  ></video>
+              <div
+                key={index}
+                className="p-6 border-t border-neutral-800 flex flex-col gap-4"
+              >
+                {/* Product Image */}
+                {launch.image && (
+                  <div className="relative w-full rounded-xl overflow-hidden shadow-md">
+                    <img
+                      src={launch.image}
+                      alt={launch.product}
+                      className="w-full h-56 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                 )}
+
+                <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-red-500 transition-colors">
+                  {launch.product}
+                </h3>
+                <p className="text-gray-400 text-sm md:text-base">
+                  {launch.description}
+                </p>
               </div>
             ))}
           </div>
@@ -83,4 +97,3 @@ function LaunchCalendar() {
 }
 
 export default LaunchCalendar;
-  

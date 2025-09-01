@@ -60,7 +60,7 @@ export default function Palermo() {
           </div>
         ))}
       </motion.div>
-\
+
       {/* Palermo City Fashion Section */}
       <section className="mt-24 relative pb-20">
         {/* Background with Parallax feel */}

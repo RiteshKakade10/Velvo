@@ -64,7 +64,9 @@ const Navbar = () => {
 
           {/* Right Side Icons */}
           <div className="flex items-center gap-4 ml-auto">
-            {/* Search Icon */}
+            <div className='p-2 rounded-full hover:bg-white/30 transition duration-200 cursor-pointer'>
+                <Link to="/careers">Careers</Link>
+            </div>
             <div className="p-2 rounded-full hover:bg-white/30 transition duration-200 cursor-pointer relative">
               <Search className="w-5 h-5 text-white" onClick={() => setShowSearch(!showSearch)} />
               
@@ -82,7 +84,6 @@ const Navbar = () => {
                 )}
 
             </div>
-
             <div className="p-2 rounded-full hover:bg-white/30 transition duration-200 cursor-pointer">
               <Link to="/wishlist"><Heart className="w-5 h-5 text-white" /></Link>
             </div>

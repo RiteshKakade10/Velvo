@@ -17,6 +17,8 @@ import NitroPage1 from './NavbarSectionCoponents/NEW/Nitro-Pages/nitropage1.jsx'
 import Bags from './Pages/Bags/Bags.jsx';
 import BagProducts from '../src/Pages/Bags/Bagscomponents.jsx';
 import Formula_page1 from './NavbarSectionCoponents/NEW/Formula/Formula_page1.jsx';
+import CareersPage from './Pages/CareersPage.jsx';
+import FAQ from './Pages/FAQ.jsx';
 
 
 function App() {
@@ -50,6 +52,12 @@ function App() {
 
         {/* Catch-all (Error Page) */}
         <Route path="*" element={<ErrorPage />} />
+
+         {/* Career Page */}
+        <Route path="/careers" element={<CareersPage/>} />
+
+         {/*FAQ*/}
+        <Route path="/faq" element={<FAQ/>} />
       </Routes>
 
       <Footer />

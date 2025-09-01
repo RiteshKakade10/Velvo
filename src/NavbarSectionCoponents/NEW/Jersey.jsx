@@ -47,24 +47,25 @@ export default function JerseyPage() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
       {/* ✅ Sticky Subheader */}
-      <div className="fixed top-28 z-20 bg-black/70 backdrop-blur-sm shadow-md w-full">
-        <div className="flex overflow-x-auto scrollbar-hide justify-center gap-6 px-4 py-3 text-sm font-semibold">
+      <div className="fixed top-16 sm:top-20 z-30 bg-black/70 backdrop-blur-sm shadow-md w-full">
+        <div className="flex overflow-x-auto scrollbar-hide gap-3 sm:gap-6 px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm md:text-base font-semibold">
           {jerseyCategories.map((jersey, index) => (
             <button
               key={jersey}
               onClick={() => handleScrollTo(index)}
-              className={`pb-2 transition relative whitespace-nowrap ${
+              className={`pb-1 sm:pb-2 transition relative whitespace-nowrap ${
                 activeTab === jersey ? "text-blue-400" : "text-white"
               }`}
             >
               {jersey}
               {activeTab === jersey && (
-                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-blue-400 rounded-full"></span>
+                <span className="absolute bottom-0 left-0 w-full h-[2px] sm:h-[3px] bg-blue-400 rounded-full"></span>
               )}
             </button>
           ))}
         </div>
       </div>
+
 
       {/* ✅ Jersey Sections */}
       <div className="relative z-10 mt-28 px-6 md:px-20">

@@ -48,12 +48,12 @@ export default function JerseyPage() {
     <div className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
       {/* ✅ Sticky Subheader */}
       <div className="fixed top-28 z-20 bg-black/70 backdrop-blur-sm shadow-md w-full">
-        <div className="flex overflow-x-auto justify-center gap-6 px-4 py-3 text-sm font-semibold">
+        <div className="flex overflow-x-auto scrollbar-hide justify-center gap-6 px-4 py-3 text-sm font-semibold">
           {jerseyCategories.map((jersey, index) => (
             <button
               key={jersey}
               onClick={() => handleScrollTo(index)}
-              className={`pb-2 transition relative ${
+              className={`pb-2 transition relative whitespace-nowrap ${
                 activeTab === jersey ? "text-blue-400" : "text-white"
               }`}
             >
@@ -74,7 +74,6 @@ export default function JerseyPage() {
             ref={(el) => (sectionRefs.current[index] = el)}
             className="relative min-h-screen flex flex-col items-center justify-center border-b border-white/20 overflow-hidden"
           >
-            {/* 🎥 Only Football Section gets Video Background */}
             {jersey === "Football Jersey" && (
               <>
                 <video

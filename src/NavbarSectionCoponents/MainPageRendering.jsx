@@ -5,10 +5,11 @@ import Mostro from './NEW/Mostro';
 import FENTYxSMURFS from './NEW/FENTYxSMURFS';
 import Nitro from './NEW/Nitro';
 import Palermo from './NEW/Palermo';
-import MensNewArrival from './NEW/MensNewArrival';
+import MensNewArrival from './NEW/MensNewArrivals/MensNewArrival';
 import Jersey from './NEW/Jersey';
 import LaunchCalendar from './NEW/LaunchCalender';
 import FormulaF1 from './NEW/Formula/FormulaF1';
+import WomensNewArrival from './NEW/WomensNewArrival/WomensNewArrival';
 
 const componentMap = {
   'mostro': <Mostro />,
@@ -18,7 +19,8 @@ const componentMap = {
   'mens-new-arrivals':<MensNewArrival/>,
   'jersey-styling': <Jersey />,
   'launch-calendar': <LaunchCalendar />,
-  'formula-f1':<FormulaF1/>
+  'formula-f1':<FormulaF1/>,
+  'womens-new-arrivals':<WomensNewArrival/>
 };
 
 export default function MainPageRendering() {

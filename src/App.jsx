@@ -58,9 +58,6 @@ function App() {
 
          {/*FAQ*/}
         <Route path="/faq" element={<FAQ/>} />
-
-        {/*FAQ*/}
-        <Route path="/faq" element={<FAQ/>} />
       </Routes>
 
       <Footer />

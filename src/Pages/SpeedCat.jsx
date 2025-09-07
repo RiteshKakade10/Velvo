@@ -32,7 +32,7 @@ const sneakers = [
 
 function SpeedCat() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-6 py-12">
+    <div className="min-h-screen bg-neutral-950 text-white px-6 py-12">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}

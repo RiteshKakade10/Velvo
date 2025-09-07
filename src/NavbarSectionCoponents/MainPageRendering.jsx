@@ -12,6 +12,9 @@ import FormulaF1 from './NEW/Formula/FormulaF1';
 import WomensNewArrival from './NEW/WomensNewArrival/WomensNewArrival';
 import KidsNewArrival from './NEW/KidsNewArrivals/kidsNewArrival';
 import SpeedCat from '../Pages/SpeedCat';
+import RSCollection from '../Pages/RSCollection';
+import SuedeCollection from '../Pages/SuedeCollection';
+import PumaRiderShoes from '../Pages/PumaRiderShoes';
 
 const componentMap = {
   'mostro': <Mostro />,
@@ -24,7 +27,10 @@ const componentMap = {
   'formula-f1':<FormulaF1/>,
   'womens-new-arrivals':<WomensNewArrival/>,
   'kids-new-arrivals':<KidsNewArrival/>,
-  'speedcat':<SpeedCat/>
+  'speedcat':<SpeedCat/>,
+  'rs-collection':<RSCollection/>,
+  'suede':<SuedeCollection/>,
+  'rider':<PumaRiderShoes/>
 };
 
 export default function MainPageRendering() {

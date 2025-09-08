@@ -2,53 +2,53 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ShoppingCart, Star } from "lucide-react";
 
-// Puma Rider Shoes Data
+// Rider Shoes Data
 const riderShoes = [
   {
     id: 1,
-    title: "Puma Rider Classic",
+    title: "Rider Classic",
     price: "₹5,999",
     image:
       "https://images.unsplash.com/photo-1606813903080-8c784c0a07cd?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 2,
-    title: "Puma Future Rider",
+    title: "Future Rider",
     price: "₹6,499",
     image:
       "https://images.unsplash.com/photo-1616627452110-1d1bbf3de64b?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 3,
-    title: "Puma Rider Play On",
+    title: "Rider Play On",
     price: "₹7,299",
     image:
       "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 4,
-    title: "Puma Rider Vintage",
+    title: "Rider Vintage",
     price: "₹6,799",
     image:
       "https://images.unsplash.com/photo-1600180758895-42d21ef1c2b2?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 5,
-    title: "Puma Rider Premium",
+    title: "Rider Premium",
     price: "₹8,199",
     image:
       "https://images.unsplash.com/photo-1611605698335-8e2a31c2f3f8?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 6,
-    title: "Puma Rider Bold",
+    title: "Rider Bold",
     price: "₹7,899",
     image:
       "https://images.unsplash.com/photo-1603808033192-e8b6f841c05e?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
-function PumaRiderShoes() {
+function RiderShoes() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
@@ -59,7 +59,7 @@ function PumaRiderShoes() {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-6xl font-extrabold mb-4 tracking-wide"
         >
-          Puma Rider Shoes
+          Riding Shoes
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -105,4 +105,4 @@ function PumaRiderShoes() {
   );
 }
 
-export default PumaRiderShoes;
+export default RiderShoes;

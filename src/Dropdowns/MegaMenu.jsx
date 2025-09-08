@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MegaMenu = ({ type, isMobile = false }) => {
-  const menus = {
+const MegaMenu = ({ type, isMobile = false, onClose }) => {
+  
+
+const menus = {
     "new ⚡️": [
       {
         title: "Fast Lane Drip",
@@ -16,14 +18,6 @@ const MegaMenu = ({ type, isMobile = false }) => {
         title: "Sneaker Store",
         items: ["Mostro", "Palermo", "Speedcat", "RS Collection", "Suede", "Rider"]
       },
-      {
-        title: "Running Store",
-        items: ["Run Clubs", "Nitro", "Softride", "Activewear"]
-      },
-      {
-        title: "Training Store",
-        items: ["Strength", "Mobility", "Endurance", "Basics"]
-      }
     ],
     men: [
       {
@@ -155,45 +149,48 @@ const MegaMenu = ({ type, isMobile = false }) => {
   if (!content) return null;
 
   const slugify = (text) =>
-  text
-    .trim()
-    .toLowerCase()
-    .replace(/’/g, '')             // remove curly apostrophes
-    .replace(/'/g, '')             // remove straight apostrophes
-    .replace(/[^\w\s-]/g, '')      // remove special chars (like ⚡️)
-    .replace(/\s+/g, '-')          // replace spaces with hyphens
-    .replace(/-+$/, '')            // remove trailing hyphens
-    .replace(/^[-]+/, '');         // remove leading hyphens
-
-
+    text
+      .trim()
+      .toLowerCase()
+      .replace(/’/g, '')
+      .replace(/'/g, '')
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+$/, '')
+      .replace(/^[-]+/, '');
 
   return (
     <div className={`w-full ${isMobile ? '' : 'relative overflow-x-hidden'}`}>
       <div
         className={`${
           isMobile
-            ? 'bg-black text-white w-full py-2 px-3 relative'
-            : 'bg-white text-black shadow-lg border border-gray-200 rounded-md min-w-[700px] max-w-[95vw] mx-auto p-6 grid grid-cols-2 md:grid-cols-5 gap-6 z-50'
+            ? 'bg-black text-white w-full py-2 px-2'
+            : 'bg-white text-black shadow-lg border border-gray-200 rounded-md min-w-[600px] max-w-[90vw] mx-auto p-4 grid grid-cols-2 md:grid-cols-4 gap-4 z-50'
         }`}
       >
         {content.map((col, index) => (
-          <div key={index} className={`${isMobile ? 'mb-4' : ''}`}>
-            <h4 className="font-bold mb-2">{col.title}</h4>
-            <ul className="text-sm space-y-1">
+          <div key={index} className={`${isMobile ? 'mb-3' : ''}`}>
+            <h4 className={`font-semibold mb-1 text-sm ${isMobile ? 'text-gray-300' : 'text-gray-800'}`}>
+              {col.title}
+            </h4>
+            <ul className="text-sm">
               {col.items.map((item, idx) => {
                 const slug = slugify(item);
-                const base = type.toLowerCase().includes('new') ? 'New' : slugify(type);
                 const path = `/New/${slug}`;
-
                 return (
                   <li key={idx}>
                     <Link
                       to={path}
-                      className={`block ${
-                        isMobile
-                          ? 'text-white hover:text-red-500'
-                          : 'text-gray-800 hover:underline transition duration-150'
-                      }`}
+                      className={`block px-2 py-1 rounded-md transition-all duration-200
+                        ${isMobile
+                          ? 'text-gray-200 hover:bg-gray-800 hover:text-white'
+                          : 'text-gray-700 hover:bg-black hover:text-white'
+                        }`}
+                      onClick={() => {
+                        if (isMobile && onClose) {
+                          onClose(); // 🔥 Close the navbar
+                        }
+                      }}
                     >
                       {item}
                     </Link>
@@ -209,3 +206,5 @@ const MegaMenu = ({ type, isMobile = false }) => {
 };
 
 export default MegaMenu;
+
+

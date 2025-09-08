@@ -14,7 +14,7 @@ import KidsNewArrival from './NEW/KidsNewArrivals/kidsNewArrival';
 import SpeedCat from '../Pages/SpeedCat';
 import RSCollection from '../Pages/RSCollection';
 import SuedeCollection from '../Pages/SuedeCollection';
-import PumaRiderShoes from '../Pages/PumaRiderShoes';
+import RiderShoes from '../Pages/RiderShoes';
 
 const componentMap = {
   'mostro': <Mostro />,
@@ -30,7 +30,7 @@ const componentMap = {
   'speedcat':<SpeedCat/>,
   'rs-collection':<RSCollection/>,
   'suede':<SuedeCollection/>,
-  'rider':<PumaRiderShoes/>
+  'rider':<RiderShoes/>
 };
 
 export default function MainPageRendering() {

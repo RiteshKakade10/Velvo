@@ -15,6 +15,9 @@ import SpeedCat from '../Pages/SpeedCat';
 import RSCollection from '../Pages/RSCollection';
 import SuedeCollection from '../Pages/SuedeCollection';
 import RiderShoes from '../Pages/RiderShoes';
+import TeeShirtMen from '../Pages/Mens/TeeShirtMen.jsx'
+import Jackets from '../Pages/Mens/Jackets.jsx';
+import Shorts from '../Pages/Mens/Shorts.jsx';
 
 const componentMap = {
   'mostro': <Mostro />,
@@ -30,7 +33,10 @@ const componentMap = {
   'speedcat':<SpeedCat/>,
   'rs-collection':<RSCollection/>,
   'suede':<SuedeCollection/>,
-  'rider':<RiderShoes/>
+  'rider':<RiderShoes/>,
+  't-shirts':<TeeShirtMen/>,
+  'jackets':<Jackets/>,
+  'shorts':<Shorts/>
 };
 
 export default function MainPageRendering() {

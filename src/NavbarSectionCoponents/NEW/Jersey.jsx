@@ -25,15 +25,20 @@ export default function JerseyPage() {
   const sectionRefs = useRef([]);
 
   const handleScrollTo = (index) => {
-    sectionRefs.current[index].scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    const targetSection = sectionRefs.current[index];
+    if (targetSection) {
+      const offset = 120; // Navbar (64px) + Subheader (≈56px)
+      const topPosition =
+        targetSection.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({ top: topPosition, behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
     const handleScroll = () => {
       sectionRefs.current.forEach((ref, index) => {
+        if (!ref) return;
         const rect = ref.getBoundingClientRect();
         if (rect.top <= 150 && rect.bottom >= 150) {
           setActiveTab(jerseyCategories[index]);
@@ -46,8 +51,7 @@ export default function JerseyPage() {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
-      {/* ✅ Sticky Subheader */}
-      <div className="fixed top-16 sm:top-20 z-30 bg-black/70 backdrop-blur-sm shadow-md w-full">
+      <div className="fixed top-[100px] z-40 bg-black/70 backdrop-blur-sm shadow-md w-full">
         <div className="flex overflow-x-auto scrollbar-hide gap-3 sm:gap-6 px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm md:text-base font-semibold">
           {jerseyCategories.map((jersey, index) => (
             <button
@@ -66,15 +70,15 @@ export default function JerseyPage() {
         </div>
       </div>
 
-
       {/* ✅ Jersey Sections */}
-      <div className="relative z-10 mt-28 px-6 md:px-20">
+      <div className="relative z-10 mt-[140px] px-6 md:px-20">
         {jerseyCategories.map((jersey, index) => (
           <section
             key={index}
             ref={(el) => (sectionRefs.current[index] = el)}
             className="relative min-h-screen flex flex-col items-center justify-center border-b border-white/20 overflow-hidden"
           >
+            {/* Background video only for Football section */}
             {jersey === "Football Jersey" && (
               <>
                 <video

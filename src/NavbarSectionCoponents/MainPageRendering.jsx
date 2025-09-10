@@ -15,9 +15,9 @@ import SpeedCat from '../Pages/SpeedCat';
 import RSCollection from '../Pages/RSCollection';
 import SuedeCollection from '../Pages/SuedeCollection';
 import RiderShoes from '../Pages/RiderShoes';
-import TeeShirtMen from '../Pages/Mens/TeeShirtMen.jsx'
-import Jackets from '../Pages/Mens/Jackets.jsx';
-import Shorts from '../Pages/Mens/Shorts.jsx';
+import TeeShirtMen from '../NavbarSectionCoponents/MEN/Cloths/TeeShirtMen.jsx'
+import Jackets from '../NavbarSectionCoponents/MEN/Cloths/Jackets.jsx';
+import Shorts from '../NavbarSectionCoponents/MEN/Cloths/Shorts.jsx';
 
 const componentMap = {
   'mostro': <Mostro />,

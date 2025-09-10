@@ -23,7 +23,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover object-top z-0"
           />
 
-          <div className="relative z-20 max-w-4xl mx-auto text-center px-6">
+          <div className="pt-90 relative z-20 max-w-4xl mx-auto text-center px-6">
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -94,6 +94,7 @@ export default function Home() {
             </Link>
           </div>
         </section>
+        <section></section>
 
         {/* ---------------- Components Section ---------------- */}
         <section className="relative px-6 max-w-7xl mx-auto">

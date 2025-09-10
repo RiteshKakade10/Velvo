@@ -20,7 +20,7 @@ import Formula_page1 from './NavbarSectionCoponents/NEW/Formula/Formula_page1.js
 import CareersPage from './Pages/CareersPage.jsx';
 import FAQ from './Pages/FAQ.jsx';
 import CheckoutPage from './Pages/Payment/CheckoutPage.jsx';
-import RazorpayCheckout from './Pages/Payment/RazorpayCheckout.jsx';
+
 
 
 function App() {

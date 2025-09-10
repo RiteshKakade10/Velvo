@@ -19,6 +19,8 @@ import BagProducts from '../src/Pages/Bags/Bagscomponents.jsx';
 import Formula_page1 from './NavbarSectionCoponents/NEW/Formula/Formula_page1.jsx';
 import CareersPage from './Pages/CareersPage.jsx';
 import FAQ from './Pages/FAQ.jsx';
+import CheckoutPage from './Pages/Payment/CheckoutPage.jsx';
+import RazorpayCheckout from './Pages/Payment/RazorpayCheckout.jsx';
 
 
 function App() {
@@ -58,6 +60,9 @@ function App() {
 
          {/*FAQ*/}
         <Route path="/faq" element={<FAQ/>} />
+
+        {/*Razorpay */}
+        <Route path='/razorpay' element={<CheckoutPage/>}></Route>
       </Routes>
 
       <Footer />

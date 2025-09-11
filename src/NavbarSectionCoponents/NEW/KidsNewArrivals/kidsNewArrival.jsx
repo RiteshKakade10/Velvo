@@ -1,106 +1,64 @@
 import React from "react";
 import { motion } from "framer-motion";
-import BGVID from "../../../assets/Women/WomenNewArrivals/newarrivalbg.mp4";
-import IMG1 from "../../../assets/Women/WomenNewArrivals/RedEveningDress.jpg";
-import IMG2 from "../../../assets/Women/WomenNewArrivals/whitecroptop.jpg";
-import IMG3 from "../../../assets/Women/WomenNewArrivals/blueskinnyjeans.jpg";
-import IMG4 from "../../../assets/Women/WomenNewArrivals/highheels.jpg";
-
-import IMG5 from "../../../assets/Women/WomenNewArrivals/FloralMaxiDress.jpg";
-import IMG6 from "../../../assets/Women/WomenNewArrivals/DenimJacket.jpg";
-import IMG7 from "../../../assets/Women/WomenNewArrivals/Silkdress.jpg";
-import IMG8 from "../../../assets/Women/WomenNewArrivals/AnkleStrapSandals.jpg";
+import HeroImage from "../../../assets/Kids/KidsNewArrivals/KidsBG.jpg"; 
+import IMG1 from '../../../assets/Kids/KidsNewArrivals/Girls/ForalFrokGirls.jpg';
+import IMG2 from '../../../assets/Kids/KidsNewArrivals/Boys/cartoonTshirt.jpg';
+import IMG3 from '../../../assets/Kids/KidsNewArrivals/Boys/casualShorts.jpg';
+import IMG4 from '../../../assets/Kids/KidsNewArrivals/Boys/sportSneakers.jpg';
+import IMG5 from '../../../assets/Kids/KidsNewArrivals/Boys/miniJacket.jpg';
+import IMG6 from '../../../assets/Kids/KidsNewArrivals/Girls/cozyhoodie.jpg';
+import IMG7 from '../../../assets/Kids/KidsNewArrivals/Girls/partyWear.jpg';
+import IMG8 from '../../../assets/Kids/KidsNewArrivals/Girls/comfirtsandles.jpg';
 
 const products = [
-  {
-    id: 1,
-    name: "Red Evening Dress",
-    price: "$109.99",
-    description: "Elegant red dress for special occasions.",
-    image: IMG1,
-  },
-  {
-    id: 2,
-    name: "Classic White Top",
-    price: "$39.99",
-    description: "Stylish white top with a modern design.",
-    image: IMG2,
-  },
-  {
-    id: 3,
-    name: "Skinny Jeans",
-    price: "$59.99",
-    description: "Trendy skinny jeans with perfect fit.",
-    image: IMG3,
-  },
-  {
-    id: 4,
-    name: "High Heels",
-    price: "$89.99",
-    description: "Premium leather high heels for an elegant look.",
-    image: IMG4,
-  },
-  {
-    id: 5,
-    name: "Floral Maxi Dress",
-    price: "$119.99",
-    description: "Flowy summer maxi dress with vibrant floral prints.",
-    image: IMG5,
-  },
-  {
-    id: 6,
-    name: "Denim Jacket",
-    price: "$79.99",
-    description: "Trendy cropped denim jacket for a casual chic look.",
-    image: IMG6, 
-  },
-  {
-    id: 7,
-    name: "Silk Dress",
-    price: "$69.99",
-    description: "Elegant silk blouse with a relaxed fit and soft feel.",
-    image: IMG7, 
-  },
-  {
-    id: 8,
-    name: "Ankle Strap Sandals",
-    price: "$99.99",
-    description: "Stylish leather sandals with comfortable ankle straps.",
-    image: IMG8, 
-  },
+  { id: 1, name: "Floral Frock", price: "$49.99", description: "Cute floral frock perfect for birthdays and parties.", image: IMG1 },
+  { id: 2, name: "Cartoon T-Shirt", price: "$19.99", description: "Soft cotton t-shirt with fun cartoon print.", image: IMG2 },
+  { id: 3, name: "Casual Shorts", price: "$24.99", description: "Lightweight and comfy shorts for daily wear.", image: IMG3 },
+  { id: 4, name: "Sporty Sneakers", price: "$39.99", description: "Durable sneakers for active kids, perfect for school and playtime.", image: IMG4 },
+  { id: 5, name: "Mini Denim Jacket", price: "$34.99", description: "Trendy denim jacket for a stylish casual look.", image: IMG5 },
+  { id: 6, name: "Cozy Hoodie", price: "$29.99", description: "Soft hoodie to keep kids warm during chilly evenings.", image: IMG6 },
+  { id: 7, name: "Party Wear Set", price: "$59.99", description: "Complete outfit set for kids' special occasions.", image: IMG7 },
+  { id: 8, name: "Comfort Sandals", price: "$22.99", description: "Light and comfy sandals for everyday adventures.", image: IMG8 },
 ];
 
 export default function KidsNewArrival() {
   return (
     <div className="text-white min-h-screen relative overflow-hidden bg-neutral-950">
-      {/* Hero Section */}
+      {/* ✅ Hero Section with Image */}
       <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden pt-20">
-        <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover object-contain"
-        >
-        <source src={BGVID} type="video/mp4" />
-        </video>
+        <img
+          src={HeroImage}
+          alt="Kids New Arrivals"
+          className="w-full h-full object-cover object-center"
+        />
 
-        {/* Overlay */}
+        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* Hero Text */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
           <motion.h1
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-extrabold text-center text-white uppercase"
+            className="text-4xl md:text-6xl font-extrabold text-center text-white uppercase"
           >
-            Kid's New Arrival's
+            Kids' New Arrivals
           </motion.h1>
+
+          {/* ✅ Added Subheader */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="mt-4 text-lg md:text-xl text-white text-center max-w-2xl"
+          >
+            Discover the latest fashion for your little ones – trendy, comfy, and fun!
+          </motion.p>
         </div>
       </div>
 
-      {/* Product Grid */}
+      {/* ✅ Product Grid */}
       <div className="relative z-20 max-w-7xl mx-auto pt-20 pb-20 px-6 md:px-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
           {products.map((product, index) => (
@@ -117,27 +75,27 @@ export default function KidsNewArrival() {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-80 object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-72 object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
               {/* Product Info */}
               <div className="p-6 flex flex-col gap-3">
-                <h2 className="text-xl font-bold text-white group-hover:text-pink-500 transition-colors">
+                <h2 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors">
                   {product.name}
                 </h2>
                 <p className="text-gray-400 text-sm">{product.description}</p>
-                <p className="text-lg font-semibold text-yellow-400">
+                <p className="text-lg font-semibold text-white">
                   {product.price}
                 </p>
                 <motion.button
-                whileHover={{ scale: 1.1, backgroundColor: "#e11d48" }} // hover animation
-                whileTap={{ scale: 0.95 }} // tap animation
-                transition={{ type: "spring", stiffness: 300 }}
-                className="px-6 py-3 rounded-xl text-white font-semibold shadow-lg 
-                            hover:shadow-2xl focus:outline-none"
+                  whileHover={{ scale: 1.1, backgroundColor: "#facc15" }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="px-6 py-3 rounded-xl bg-pink-500 text-white font-semibold shadow-lg 
+                              hover:shadow-2xl focus:outline-none"
                 >
-                Buy Now
+                  Buy Now
                 </motion.button>
               </div>
             </motion.div>
